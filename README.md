@@ -33,6 +33,57 @@
 </dependencyManagement>
 ```
 
+### 部署到私有仓库
+
+企业用户如果建有Maven私有仓库（nexus），可将本项目部署到私有仓库：
+
+第一步：下载
+
+```
+git clone https://github.com/zhycn/xbird-starter.git
+```
+
+第二步：私有仓库配置
+
+在本地Maven的settings.xml文件中配置用户认证信息：
+
+```
+<server>
+  <id>nexus-releases</id>
+  <username>admin</username>
+  <password>admin123</password>
+</server>
+
+<server>
+  <id>nexus-snapshots</id>
+  <username>admin</username>
+  <password>admin123</password>
+</server>
+```
+
+在POM.xml中配置部署构件：
+
+```
+<distributionManagement>
+  <repository>
+    <id>nexus-releases</id>
+    <name>Internal Releases</name>
+    <url>http://10.7.3.2/nexus/content/repositories/releases/</url>
+  </repository>
+  <snapshotRepository>
+    <id>nexus-snapshots</id>
+    <name>Internal snapshots</name>
+    <url>http://10.7.3.2/nexus/content/repositories/snapshots/</url>
+  </snapshotRepository>
+</distributionManagement>
+```
+
+第三步：部署安装
+
+```
+mvn deploy
+```
+
 ### 依赖版本
 
 | Group | Artifact | Version |
