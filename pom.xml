@@ -5,11 +5,11 @@
 
 	<groupId>org.xbird.starter</groupId>
 	<artifactId>xbird-starter</artifactId>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	
 	<name>xbird::Starter</name>
-	<description>»ùÓÚSpring BootµÄÆóÒµ¼¶ÏîÄ¿ÒÀÀµ°æ±¾¹ÜÀí¡£</description>
+	<description>åŸºäºSpring Bootçš„ä¼ä¸šçº§é¡¹ç›®ä¾èµ–ç‰ˆæœ¬ç®¡ç†ã€‚</description>
 	<url>https://github.com/zhycn/xbird-starter.git</url>
 
 	<parent>
@@ -31,7 +31,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<spring.platform.version>Brussels-SR5</spring.platform.version>
+		<spring.platform.version>Brussels-SR6</spring.platform.version>
 		<spring.cloud.version>Dalston.SR4</spring.cloud.version>
 		<spring.boot.admin.version>1.5.4</spring.boot.admin.version>
 		<springfox.swagger2.version>2.7.0</springfox.swagger2.version>
@@ -81,13 +81,6 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
 				<version>${alibaba.druid.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-spring-boot-starter</artifactId>
-				<version>${apache.camel.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.commons</groupId>
