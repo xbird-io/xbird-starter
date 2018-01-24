@@ -50,13 +50,13 @@ The Spring IO platform provides versions of the various Spring projects and thei
 </dependency>
 ```
 
-### Dependency versions
+## Dependency versions
 
-| Group | Artifact | Version |
-|:---|:---|:---|
-| io.spring.platform | platform-bom | Brussels-SR6 |
-| org.springframework.boot | spring-boot-starter-parent | 1.5.9.RELEASE |
-| org.springframework.cloud | spring-cloud-dependencies | Edgware.SR1 |
-| org.apache.commons | commons-lang3 | 3.6 |
-| com.alibaba | fastjson | 1.2.38 |
-| com.alibaba | druid-spring-boot-starter | 1.1.6 |
+| Group | Artifact | Version | Website |
+|:---|:---|:---|:---|
+| io.spring.platform | platform-bom | Brussels-SR6 | [Official](http://platform.spring.io/platform/) | 
+| org.springframework.boot | spring-boot-starter-parent | 1.5.9.RELEASE | [Official](https://projects.spring.io/spring-boot/) | 
+| org.springframework.cloud | spring-cloud-dependencies | Edgware.SR1 |[Official](http://projects.spring.io/spring-cloud/) | 
+| org.apache.commons | commons-lang3 | 3.7 | [Official](http://commons.apache.org/proper/commons-lang/) | 
+| com.alibaba | fastjson | 1.2.44 | [GitHub](https://github.com/alibaba/fastjson) | 
+| com.alibaba | druid-spring-boot-starter | 1.1.6 | [GitHub](https://github.com/alibaba/druid) | 

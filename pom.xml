@@ -33,8 +33,8 @@
 		<java.version>1.8</java.version>
 		<spring.platform.version>Brussels-SR6</spring.platform.version>
 		<spring.cloud.version>Edgware.SR1</spring.cloud.version>
-		<apache.commons-lang3.version>3.6</apache.commons-lang3.version>
-		<alibaba.fastjson.version>1.2.38</alibaba.fastjson.version>
+		<apache.commons-lang3.version>3.7</apache.commons-lang3.version>
+		<alibaba.fastjson.version>1.2.44</alibaba.fastjson.version>
 		<alibaba.druid.version>1.1.6</alibaba.druid.version>
 	</properties>
 
@@ -67,7 +67,7 @@
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>1.1.6</version>
+				<version>${alibaba.druid.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
