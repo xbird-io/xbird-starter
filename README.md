@@ -16,7 +16,7 @@ The recommended way to get started using `xbird-starter` in your project is with
 <parent>
   <groupId>com.github.zhycn</groupId>
   <artifactId>xbird-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0.RELEASE</version>
   <relativePath />
 </parent>
 ```
@@ -29,7 +29,7 @@ Or:
     <dependency>
       <groupId>com.github.zhycn</groupId>
       <artifactId>xbird-starter</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.0.RELEASE</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
