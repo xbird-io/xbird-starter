@@ -7,7 +7,7 @@
 	<artifactId>xbird-starter</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
-	
+
 	<name>xbird::Starter</name>
 	<description>基于Spring Boot的企业级项目依赖版本管理。</description>
 	<url>https://github.com/zhycn/xbird-starter.git</url>
@@ -35,7 +35,7 @@
 		<spring.cloud.version>Dalston.SR4</spring.cloud.version>
 		<spring.boot.admin.version>1.5.4</spring.boot.admin.version>
 		<springfox.swagger2.version>2.7.0</springfox.swagger2.version>
-		
+
 		<alibaba.fastjson.version>1.2.38</alibaba.fastjson.version>
 		<alibaba.druid.version>1.1.3</alibaba.druid.version>
 		<apache.commons-lang3.version>3.6</apache.commons-lang3.version>
