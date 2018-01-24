@@ -1,29 +1,33 @@
 # xbird-starter
 
-基于Spring Boot的企业级项目依赖版本管理。
+A cohesive, versioned platform for enterprise applications with Spring Boot.
 
-### 快速开始
+**Compatible**
 
-> 使用须知：本项目完美兼容Spring Boot项目，并在此基础上添加了部分国内外优质项目依赖包。
+- [Spring IO platform - Brussels-SR6](http://platform.spring.io/platform/)
+- [Spring Boot - 1.5.9.RELEASE](https://projects.spring.io/spring-boot/)
+- [Spring Cloud - Edgware.SR1](http://projects.spring.io/spring-cloud/)
 
-在Spring Boot项目中，作为父项目依赖：
+## Quick Start
+
+The recommended way to get started using `xbird-starter` in your project is with a dependency management system – the snippet below can be copied and pasted into your build: 
 
 ```
 <parent>
-  <groupId>org.xbird.starter</groupId>
+  <groupId>com.github.zhycn</groupId>
   <artifactId>xbird-starter</artifactId>
   <version>1.0.0</version>
   <relativePath />
 </parent>
 ```
 
-或者，作为依赖管理添加到项目中：
+Or: 
 
 ```
 <dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>org.xbird.starter</groupId>
+      <groupId>com.github.zhycn</groupId>
       <artifactId>xbird-starter</artifactId>
       <version>1.0.0</version>
       <type>pom</type>
@@ -33,66 +37,26 @@
 </dependencyManagement>
 ```
 
-### 部署到私有仓库
+### Using the Platform
 
-企业用户如果建有Maven私有仓库（nexus），可将本项目部署到私有仓库：
+The Spring IO platform provides versions of the various Spring projects and their dependencies. With the configuration shown above added to your build script, you're ready to declare your dependencies without having to worry about version numbers:
 
-第一步：下载
-
-```
-git clone https://github.com/zhycn/xbird-starter.git
-```
-
-第二步：私有仓库配置
-
-在本地Maven的settings.xml文件中配置用户认证信息：
+### Maven
 
 ```
-<server>
-  <id>nexus-releases</id>
-  <username>admin</username>
-  <password>admin123</password>
-</server>
-
-<server>
-  <id>nexus-snapshots</id>
-  <username>admin</username>
-  <password>admin123</password>
-</server>
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-lang3</artifactId>
+</dependency>
 ```
 
-在POM.xml中配置部署构件：
-
-```
-<distributionManagement>
-  <repository>
-    <id>nexus-releases</id>
-    <name>Internal Releases</name>
-    <url>http://10.7.3.2/nexus/content/repositories/releases/</url>
-  </repository>
-  <snapshotRepository>
-    <id>nexus-snapshots</id>
-    <name>Internal snapshots</name>
-    <url>http://10.7.3.2/nexus/content/repositories/snapshots/</url>
-  </snapshotRepository>
-</distributionManagement>
-```
-
-第三步：部署安装
-
-```
-mvn deploy
-```
-
-### 依赖版本
+### Dependency versions
 
 | Group | Artifact | Version |
 |:---|:---|:---|
 | io.spring.platform | platform-bom | Brussels-SR6 |
-| org.springframework.cloud | spring-cloud-dependencies | Dalston.SR4 |
-| de.codecentric | spring-boot-admin-server | 2.7.0 |
-| de.codecentric | spring-boot-admin-server-ui | 2.7.0 |
-| de.codecentric | spring-boot-admin-starter-client | 2.7.0 |
-| com.alibaba | fastjson | 1.2.38 |
-| com.alibaba | druid | 1.1.3 |
+| org.springframework.boot | spring-boot-starter-parent | 1.5.9.RELEASE |
+| org.springframework.cloud | spring-cloud-dependencies | Edgware.SR1 |
 | org.apache.commons | commons-lang3 | 3.6 |
+| com.alibaba | fastjson | 1.2.38 |
+| com.alibaba | druid-spring-boot-starter | 1.1.6 |
