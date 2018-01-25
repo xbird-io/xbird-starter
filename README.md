@@ -2,13 +2,13 @@
 
 Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/platform/) 打造的、开源的企业级版本管理平台。以 [Spring Boot](https://projects.spring.io/spring-boot/) 和 [Spring Cloud](http://projects.spring.io/spring-cloud/) 为载体，集成国产优质开源项目，致力于快速构建企业级应用程序。
 
-_Xbird Starter 继承 Spring IO Platform 的全部特征，完全兼容 Spring Boot 和 Spring Cloud 服务生态。鉴于 Spring Framework 5 已发布，且最低版本要求为 JDK 8。为适应未来的开发技术，Xbird Starter 确定以 JDK 8 为基础开发环境。_
+> Xbird Starter 继承 Spring IO Platform 的全部特征，完全兼容 Spring Boot 和 Spring Cloud 服务生态。鉴于 Spring Framework 5 已发布，且最低版本要求为 JDK 8。为适应未来的开发技术，Xbird Starter 确定以 JDK 8 为基础开发环境。
 
 ## 快速开始
 
 我们推荐你在项目中使用 Xbird Starter 作为统一的版本依赖管理。它提供了 Spring 所有项目的依赖版本以及常用的第三方依赖包，这使得项目开发者无需花费时间去关心依赖包的版本和兼容性问题。
 
-_如果你对本项目心存疑虑，我们推荐你使用 [Spring IO Platform](http://platform.spring.io/platform/) 项目作为统一的版本依赖管理，所有的依赖包都做过兼容性测试，可放心使用。_
+> 如果你对本项目心存疑虑，我们推荐你使用 [Spring IO Platform](http://platform.spring.io/platform/) 项目作为统一的版本依赖管理，所有的依赖包都做过兼容性测试，可放心使用。
 
 1）在你的 Spring Boot 项目中作为父项目依赖：
 
