@@ -89,7 +89,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 
 ## 覆盖版本
 
-如果需要升级或降级依赖版本，可以修改你项目中 `pom.xml` 文件的属性 `<properties>` 来设置。首先，你需要查看父项目的属性名称定义，然后修为你需要的版本：
+如果需要升级或降级依赖版本，可以修改你项目中 `pom.xml` 文件的属性 `<properties>` 来设置。首先，你需要查看父项目的属性名称定义，然后修改为你需要的版本：
 
 ```
 <properties>
