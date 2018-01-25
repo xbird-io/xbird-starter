@@ -6,9 +6,9 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 
 我们推荐你在项目中使用 Xbird Starter 作为统一的版本依赖管理。它提供了 Spring 所有项目的依赖版本以及常用的第三方依赖包，这使得项目开发者无需花费时间去关心依赖包的版本和兼容性问题。
 
-> 如果你对本项目心存疑虑，也可以使用 [Spring IO Platform](http://platform.spring.io/platform/) 项目作为统一的版本依赖管理，所有的依赖包都做过兼容性测试，可以放心使用。
+> 如果你对本项目心存疑虑，也可以使用 [Spring IO Platform](http://platform.spring.io/platform/) 项目作为统一的版本依赖管理，所有的依赖包都做过兼容性测试，可放心使用。
 
-在你的 Spring Boot 项目中作为父项目依赖：
+1）在你的 Spring Boot 项目中作为父项目依赖：
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -44,7 +44,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 </project>
 ```
 
-非 Spring Boot 项目可以添加依赖管理：
+2）非 Spring Boot 项目可以添加依赖管理：
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
