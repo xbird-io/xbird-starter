@@ -34,7 +34,6 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 
     <!-- Dependency declarations -->
 
-    <!-- Spring Boot maven plugin -->
     <build>
         <plugins>
             <plugin>
