@@ -89,7 +89,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 
 ## 覆盖版本
 
-如果需要升级或降级依赖版本，则可以通过你项目中的 POM.xml 文件属性 `<properties>` 来设置。首先，你需要查看父项目的属性名称定义，然后在你的项目中更改：
+如果需要升级或降级依赖版本，可以修改你项目中 `pom.xml` 文件的属性 `<properties>` 来设置。首先，你需要查看父项目的属性名称定义，然后修为你需要的版本：
 
 ```
 <properties>
@@ -99,7 +99,9 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 
 ## 附录：依赖版本
 
-当前列出本项目集成的依赖包及版本信息，更多依赖版本请查看：[Spring IO Platform - Dependency versions](https://docs.spring.io/platform/docs/Brussels-SR6/reference/htmlsingle/#appendix-dependency-versions)
+以下是 Xbird Starter 已集成的依赖包及版本信息：
+
+> 得益于 Spring IO Platform 项目提供的依赖版本管理，请查看：[Spring IO Platform - Dependency versions](https://docs.spring.io/platform/docs/Brussels-SR6/reference/htmlsingle/#appendix-dependency-versions)
 
 | Group | Artifact | Version | Website |
 |:---|:---|:---|:---:|
