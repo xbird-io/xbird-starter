@@ -1,47 +1,81 @@
 # xbird-starter
 
-A cohesive, versioned platform for enterprise applications with Spring Boot.
+Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/platform/) 打造的、开源的企业级版本管理平台。以 [Spring Boot](https://projects.spring.io/spring-boot/) 和 [Spring Cloud](http://projects.spring.io/spring-cloud/) 为载体，集成国产优质开源项目，致力于快速构建企业级应用程序。
 
-**Compatible**
+## 快速开始
 
-- [Spring IO platform - Brussels-SR6](http://platform.spring.io/platform/)
-- [Spring Boot - 1.5.9.RELEASE](https://projects.spring.io/spring-boot/)
-- [Spring Cloud - Edgware.SR1](http://projects.spring.io/spring-cloud/)
+我们推荐你在项目中使用 Xbird Starter 作为统一的版本依赖管理。它提供了 Spring 所有项目的依赖版本以及常用的第三方依赖包，这使得项目开发者无需花费时间去关心依赖包的版本和兼容性问题。
 
-## Quick Start
+> 如果你对本项目心存疑虑，也可以使用 [Spring IO Platform](http://platform.spring.io/platform/) 项目作为统一的版本依赖管理，所有的依赖包都做过兼容性测试，可以放心使用。
 
-The recommended way to get started using `xbird-starter` in your project is with a dependency management system – the snippet below can be copied and pasted into your build: 
+在你的 Spring Boot 项目中作为父项目依赖：
 
 ```
-<parent>
-  <groupId>com.github.zhycn</groupId>
-  <artifactId>xbird-starter</artifactId>
-  <version>1.0.0.RELEASE</version>
-  <relativePath />
-</parent>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>your-application</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>com.github.zhycn</groupId>
+        <artifactId>xbird-starter</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath />
+    </parent>
+
+    <!-- Dependency declarations -->
+
+    <!-- Spring Boot maven plugin -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
 ```
 
-Or: 
+非 Spring Boot 项目可以添加依赖管理：
 
 ```
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.github.zhycn</groupId>
-      <artifactId>xbird-starter</artifactId>
-      <version>1.0.0.RELEASE</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>your-application</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.zhycn</groupId>
+                <artifactId>xbird-starter</artifactId>
+                <version>1.0.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Dependency declarations -->
+
+</project>
 ```
 
-### Using the Platform
-
-The Spring IO platform provides versions of the various Spring projects and their dependencies. With the configuration shown above added to your build script, you're ready to declare your dependencies without having to worry about version numbers:
-
-### Maven
+添加好依赖配置后，在项目中新增依赖包则不需要添加版本号：
 
 ```
 <dependency>
@@ -50,10 +84,22 @@ The Spring IO platform provides versions of the various Spring projects and thei
 </dependency>
 ```
 
-## Dependency versions
+## 覆盖版本
+
+如果需要升级或降级依赖版本，则可以通过你项目中的 POM.xml 文件属性 `<properties>` 来设置。首先，你需要查看父项目的属性名称定义，然后在你的项目中更改：
+
+```
+<properties>
+    <apache.commons-lang3.version>3.7</apache.commons-lang3.version>
+</properties>
+```
+
+## 附录：依赖版本
+
+当前列出本项目集成的依赖包及版本信息，更多依赖版本请查看：[Spring IO Platform - Dependency versions](https://docs.spring.io/platform/docs/Brussels-SR6/reference/htmlsingle/#appendix-dependency-versions)
 
 | Group | Artifact | Version | Website |
-|:---|:---|:---|:---|
+|:---|:---|:---|:---:|
 | io.spring.platform | platform-bom | Brussels-SR6 | [Official](http://platform.spring.io/platform/) | 
 | org.springframework.boot | spring-boot-starter-parent | 1.5.9.RELEASE | [Official](https://projects.spring.io/spring-boot/) | 
 | org.springframework.cloud | spring-cloud-dependencies | Edgware.SR1 |[Official](http://projects.spring.io/spring-cloud/) | 
