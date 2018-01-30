@@ -10,7 +10,7 @@
 
 	<name>xbird::Starter</name>
 	<description>A cohesive, versioned platform for enterprise applications with Spring Boot.</description>
-	<url>https://github.com/zhycn/xbird-starter.git</url>
+	<url>https://zhycn.github.io/xbird-starter/</url>
 
 	<licenses>
 		<license>
@@ -30,7 +30,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/zhycn/xbird-starter.git</connection>
 		<developerConnection>scm:git:https://github.com/zhycn/xbird-starter.git</developerConnection>
-		<url>https://github.com/zhycn/xbird-starter</url>
+		<url>https://zhycn.github.io/xbird-starter/</url>
 	</scm>
 
 	<parent>
