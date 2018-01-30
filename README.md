@@ -28,7 +28,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
     <parent>
         <groupId>com.github.zhycn</groupId>
         <artifactId>xbird-starter</artifactId>
-        <version>1.0.0.RELEASE</version>
+        <version>1.1.0.RELEASE</version>
         <relativePath />
     </parent>
 
@@ -66,7 +66,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>xbird-starter</artifactId>
-                <version>1.0.0.RELEASE</version>
+                <version>1.1.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -111,3 +111,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 | org.apache.commons | commons-lang3 | 3.7 | [Official](http://commons.apache.org/proper/commons-lang/) | 
 | com.alibaba | fastjson | 1.2.44 | [GitHub](https://github.com/alibaba/fastjson) | 
 | com.alibaba | druid-spring-boot-starter | 1.1.6 | [GitHub](https://github.com/alibaba/druid) | 
+| io.springfox | springfox-swagger2 | 2.8.0 | [Official](https://springfox.github.io/springfox/) | 
+| io.springfox | springfox-swagger-ui | 2.8.0 | [Official](https://springfox.github.io/springfox/) | 
+| io.springfox | springfox-data-rest | 2.8.0 | [Official](https://springfox.github.io/springfox/) | 
+| io.springfox | springfox-bean-validators | 2.8.0 | [Official](https://springfox.github.io/springfox/) | 
