@@ -5,7 +5,7 @@
 
 	<groupId>com.github.zhycn</groupId>
 	<artifactId>xbird-starter</artifactId>
-	<version>1.1.0.RELEASE</version>
+	<version>1.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>xbird::Starter</name>
@@ -34,9 +34,9 @@
 	</scm>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
+		<groupId>io.spring.platform</groupId>
+		<artifactId>platform-bom</artifactId>
+		<version>Brussels-SR6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -44,7 +44,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<spring.platform.version>Brussels-SR6</spring.platform.version>
 		<spring.cloud.version>Edgware.SR1</spring.cloud.version>
 		<apache.commons-lang3.version>3.7</apache.commons-lang3.version>
 		<alibaba.fastjson.version>1.2.44</alibaba.fastjson.version>
@@ -54,13 +53,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>io.spring.platform</groupId>
-				<artifactId>platform-bom</artifactId>
-				<version>${spring.platform.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>

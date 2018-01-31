@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.2.0
+
+- [优化] 更新父项目为`platform-bom`。
+
 ### 1.1.0 2018-01-30
 
 - 添加 Swagger 项目的 Java 实现：SpringFox。
