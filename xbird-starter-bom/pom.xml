@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>xbird-starter-bom</artifactId>
+	<packaging>pom</packaging>
+	<name>Xbird Starter BOM</name>
+	<description>Xbird Starter BOM bill of materials</description>
+	<url>https://zhycn.github.io/xbird-starter/</url>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>zhycn</name>
+			<url>https://github.com/zhycn</url>
+			<email>qizhaohong_sh@qq.com</email>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/zhycn/xbird-starter.git</connection>
+		<developerConnection>scm:git:https://github.com/zhycn/xbird-starter.git</developerConnection>
+		<url>https://zhycn.github.io/xbird-starter/</url>
+	</scm>
+
+	<parent>
+		<groupId>com.github.zhycn</groupId>
+		<artifactId>xbird-starter</artifactId>
+		<version>1.2.0-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<properties>
+		<squareup.pollexor.version>2.0.4</squareup.pollexor.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.squareup</groupId>
+				<artifactId>pollexor</artifactId>
+				<version>${squareup.pollexor.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
