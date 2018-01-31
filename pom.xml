@@ -39,6 +39,10 @@
 		<version>Brussels-SR6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
+	<modules>
+		<module>xbird-starter-bom</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
