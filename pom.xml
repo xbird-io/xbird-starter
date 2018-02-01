@@ -43,6 +43,7 @@
 	<modules>
 		<!-- <module>xbird-starter-bom</module> -->
 		<module>xbird-starter-swagger2</module>
+		<module>xbird-starter-retrofit2</module>
 	</modules>
 
 	<properties>
