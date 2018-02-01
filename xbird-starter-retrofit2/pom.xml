@@ -8,7 +8,7 @@
 	<name>Xbird Starter Retrofit2</name>
 	<description>Integrating the type-safe HTTP client for Spring Boot.</description>
 	<url>https://zhycn.github.io/xbird-starter/</url>
-	
+
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
