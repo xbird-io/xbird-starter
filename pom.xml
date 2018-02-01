@@ -8,7 +8,7 @@
 	<version>1.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>xbird::Starter</name>
+	<name>xbird Starter</name>
 	<description>A cohesive, versioned platform for enterprise applications with Spring Boot.</description>
 	<url>https://zhycn.github.io/xbird-starter/</url>
 
@@ -41,7 +41,7 @@
 	</parent>
 
 	<modules>
-		<!-- <module>xbird-starter-bom</module> -->
+		<module>xbird-starter-bom</module>
 		<module>xbird-starter-swagger2</module>
 	</modules>
 

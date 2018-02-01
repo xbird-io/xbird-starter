@@ -16,7 +16,6 @@ _为REST APIs定义一个标准的、语言无关的接口，使人和计算机�
 <dependency>
   <groupId>com.github.zhycn</groupId>
   <artifactId>xbird-starter-swagger2</artifactId>
-  <version>1.0.0</version>
 </dependency>
 ```
 
