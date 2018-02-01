@@ -1,6 +1,6 @@
 # Changelog
 
-### 1.2.0
+### 1.2.0 2018-02-01
 
 - [优化] 更新父项目为`platform-bom`。
 - [新增] 增加企业级开发模块 `xbird-starter-bom`。

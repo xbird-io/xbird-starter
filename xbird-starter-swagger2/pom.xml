@@ -27,7 +27,7 @@
 	<parent>
 		<groupId>com.github.zhycn</groupId>
 		<artifactId>xbird-starter</artifactId>
-		<version>1.2.0-SNAPSHOT</version>
+		<version>1.2.0</version>
 		<relativePath>../</relativePath>
 	</parent>
 
