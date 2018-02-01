@@ -4,6 +4,7 @@
 
 - [优化] 更新父项目为`platform-bom`。
 - [新增] 增加企业级开发模块 `xbird-starter-bom`。
+- [新增] 集成接口文档管理模块 `xbird-starter-swagger2`。
 
 ### 1.1.0 2018-01-30
 

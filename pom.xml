@@ -39,15 +39,17 @@
 		<version>Brussels-SR6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
+
 	<modules>
 		<!-- <module>xbird-starter-bom</module> -->
+		<module>xbird-starter-swagger2</module>
 	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<xbird.version>1.2.0-SNAPSHOT</xbird.version>
 		<spring.cloud.version>Edgware.SR1</spring.cloud.version>
 		<apache.commons-lang3.version>3.7</apache.commons-lang3.version>
 		<alibaba.fastjson.version>1.2.44</alibaba.fastjson.version>
@@ -63,6 +65,11 @@
 				<version>${spring.cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>xbird-starter-swagger2</artifactId>
+				<version>${xbird.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.commons</groupId>

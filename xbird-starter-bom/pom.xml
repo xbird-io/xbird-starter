@@ -5,7 +5,6 @@
 
 	<artifactId>xbird-starter-bom</artifactId>
 	<packaging>pom</packaging>
-	<!-- <version>1.0.0</version> -->
 	<name>Xbird Starter BOM</name>
 	<description>Xbird Starter BOM bill of materials</description>
 	<url>https://zhycn.github.io/xbird-starter/</url>
@@ -24,12 +23,6 @@
 			<email>qizhaohong_sh@qq.com</email>
 		</developer>
 	</developers>
-
-	<scm>
-		<connection>scm:git:https://github.com/zhycn/xbird-starter.git</connection>
-		<developerConnection>scm:git:https://github.com/zhycn/xbird-starter.git</developerConnection>
-		<url>https://zhycn.github.io/xbird-starter/</url>
-	</scm>
 
 	<parent>
 		<groupId>com.github.zhycn</groupId>
