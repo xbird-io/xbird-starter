@@ -41,7 +41,7 @@
 	</parent>
 	
 	<modules>
-		<module>xbird-starter-bom</module>
+		<!-- <module>xbird-starter-bom</module> -->
 	</modules>
 
 	<properties>
