@@ -15,13 +15,13 @@ import okhttp3.Response;
  * @author zhycn
  * @since 1.0.0 2018-02-02
  */
-public class RetryInterceptor implements Interceptor {
+public class RequestRetryInterceptor implements Interceptor {
 
-  Logger LOGGER = LoggerFactory.getLogger(RetryInterceptor.class);
+  Logger LOGGER = LoggerFactory.getLogger(RequestRetryInterceptor.class);
 
   private final int retries;
 
-  public RetryInterceptor(int retries) {
+  public RequestRetryInterceptor(int retries) {
     this.retries = retries;
   }
 

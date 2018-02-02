@@ -4,6 +4,7 @@ import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS
 import static java.util.concurrent.TimeUnit.MINUTES;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -22,7 +23,6 @@ import org.springframework.util.ResourceUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.zhycn.retrofit2.autoconfigure.RetrofitProperties.Connection;
 import com.github.zhycn.retrofit2.context.DefaultRetrofitContext;
 import com.github.zhycn.retrofit2.context.RetrofitContext;
 
@@ -64,21 +64,19 @@ public class RetrofitAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public ConnectionPool connectionPool(RetrofitProperties properties) {
-      Connection connection = properties.getConnection();
-      return new ConnectionPool(connection.getMaxIdleConnections(),
-          connection.getKeepAliveDuration(), MINUTES);
+      return new ConnectionPool(properties.getMaxIdleConnections(),
+        properties.getKeepAliveDuration(), MINUTES);
     }
 
     @Bean
     @ConditionalOnMissingBean
     public OkHttpClient okHttpClient(RetrofitProperties properties, ConnectionPool connectionPool,
         List<Interceptor> interceptors) {
-      Connection connection = properties.getConnection();
 
       OkHttpClient.Builder builder =
-          new OkHttpClient.Builder().readTimeout(connection.getReadTimeout(), TimeUnit.MILLISECONDS)
-              .writeTimeout(connection.getWriteTimeout(), TimeUnit.MILLISECONDS)
-              .connectTimeout(connection.getConnectTimeout(), TimeUnit.MILLISECONDS)
+          new OkHttpClient.Builder().readTimeout(properties.getReadTimeout(), TimeUnit.MILLISECONDS)
+              .writeTimeout(properties.getWriteTimeout(), TimeUnit.MILLISECONDS)
+              .connectTimeout(properties.getConnectTimeout(), TimeUnit.MILLISECONDS)
               .connectionPool(connectionPool);
 
       for (Interceptor interceptor : interceptors) {
@@ -119,13 +117,17 @@ public class RetrofitAutoConfiguration {
       builder.client(okHttpClient);
     }
     RetrofitContext context = new DefaultRetrofitContext();
-    retrofitProperties.getEndpoints().forEach(endPoint -> context.register(endPoint.getIdentity(),
-        builder.baseUrl(endPoint.getBaseUrl()).build()));
+    Map<String, String> endpoints = retrofitProperties.getEndpoints();
+    endpoints.keySet().forEach(key -> {
+      context.register(key, builder.baseUrl(endpoints.get(key)).build());
+    });
     return context;
   }
 
   private void checkConfiguredUrl(RetrofitProperties properties) {
-    properties.getEndpoints().stream().map(RetrofitProperties.EndPoint::getBaseUrl).forEach(url -> {
+    Map<String, String> endpoints = properties.getEndpoints();
+    endpoints.keySet().forEach(key -> {
+      String url = endpoints.get(key);
       Assert.isTrue(ResourceUtils.isUrl(url), url + " is not a valid url");
       if (!url.endsWith("/")) {
         LOGGER.warn(
