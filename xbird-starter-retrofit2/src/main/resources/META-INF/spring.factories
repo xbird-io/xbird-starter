@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.github.zhycn.retrofit2.autoconfigure.RetrofitAutoConfiguration

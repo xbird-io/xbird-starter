@@ -43,6 +43,7 @@
 	<modules>
 		<!-- <module>xbird-starter-bom</module> -->
 		<module>xbird-starter-swagger2</module>
+		<module>xbird-starter-retrofit2</module>
 	</modules>
 
 	<properties>
@@ -55,6 +56,7 @@
 		<alibaba.fastjson.version>1.2.44</alibaba.fastjson.version>
 		<alibaba.druid.version>1.1.6</alibaba.druid.version>
 		<springfox.version>2.8.0</springfox.version>
+		<squareup.retrofit2.version>2.3.0</squareup.retrofit2.version>
 	</properties>
 
 	<dependencyManagement>
@@ -105,6 +107,76 @@
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-bean-validators</artifactId>
 				<version>${springfox.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>retrofit</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>adapter-guava</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>adapter-java8</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>adapter-rxjava</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>adapter-rxjava2</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-gson</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-guava</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-jackson</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-java8</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-jaxb</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-moshi</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-protobuf</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-simplexml</artifactId>
+				<version>${squareup.retrofit2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-wire</artifactId>
+				<version>${squareup.retrofit2.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
