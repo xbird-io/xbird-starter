@@ -6,6 +6,10 @@ import org.springframework.core.type.filter.AnnotationTypeFilter;
 
 import com.github.zhycn.retrofit2.annotations.RetrofitClient;
 
+/**
+ * @author zhycn
+ * @since 1.0.0 2018-02-02
+ */
 public class RetrofitServiceComponentProvider extends ClassPathScanningCandidateComponentProvider {
 
   private RetrofitServiceComponentProvider() {
@@ -18,7 +22,7 @@ public class RetrofitServiceComponentProvider extends ClassPathScanningCandidate
     return beanDefinition.getMetadata().isInterface();
   }
 
-  static RetrofitServiceComponentProvider getInstance() {
+  public static RetrofitServiceComponentProvider getInstance() {
     return new RetrofitServiceComponentProvider();
   }
 

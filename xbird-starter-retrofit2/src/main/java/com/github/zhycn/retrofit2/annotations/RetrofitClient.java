@@ -8,7 +8,10 @@ import java.lang.annotation.Target;
 import org.springframework.stereotype.Component;
 
 /**
- * 服务标记
+ * Annotates an interface as Retrofit service.
+ *
+ * Use this annotation to qualify a Retrofit annotated interface for auto-detection and automatic
+ * instantiation.
  * 
  * @author zhycn
  * @since 1.0.0 2018-02-02
@@ -18,10 +21,22 @@ import org.springframework.stereotype.Component;
 @Component
 public @interface RetrofitClient {
 
+  /**
+   * Defines the name of the service bean when registered to the underlying context. If left
+   * unspecified the name of the service bean is generated using
+   * {@link org.springframework.beans.factory.annotation.Qualifier}, If no Qualifier annotation, we
+   * would use full class name instead.
+   *
+   * @return the name of the bean.
+   */
   String name() default "";
 
+  /**
+   * Defines the name of retrofit should be used in building the service endpoint. Allows for more
+   * concise annotation declarations e.g. {@code @RetrofitClient("default")}
+   * 
+   * @return the specified retrofit instance to build endpoint
+   */
   String value() default "default";
-
-  String retrofit() default "";
 
 }

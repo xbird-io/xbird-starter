@@ -14,13 +14,17 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.github.zhycn.retrofit2.annotations.RetrofitClient;
+import com.github.zhycn.retrofit2.annotations.RetrofitClientScan;
 
+/**
+ * @author zhycn
+ * @since 1.0.0 2018-02-02
+ */
 public class RetrofitServiceFactoryBeanRegistrar implements ImportBeanDefinitionRegistrar {
 
   Logger LOGGER = LoggerFactory.getLogger(RetrofitServiceFactoryBeanRegistrar.class);
@@ -68,20 +72,15 @@ public class RetrofitServiceFactoryBeanRegistrar implements ImportBeanDefinition
 
   private Set<String> getPackagesToScan(AnnotationMetadata metadata) {
     AnnotationAttributes attributes = AnnotationAttributes
-        .fromMap(metadata.getAnnotationAttributes(RetrofitServiceScan.class.getName()));
+        .fromMap(metadata.getAnnotationAttributes(RetrofitClientScan.class.getName()));
 
     String[] value = attributes.getStringArray("value");
-    String[] basePackages = attributes.getStringArray("basePackages");
     Class<?>[] basePackageClasses = attributes.getClassArray("basePackageClasses");
-
-    if (!ObjectUtils.isEmpty(value)) {
-      Assert.state(ObjectUtils.isEmpty(basePackages),
-          "@RetrofitServiceScan basePackages and value attributes are mutually exclusive");
-    }
-
     Set<String> packagesToScan = new LinkedHashSet<String>();
-    packagesToScan.addAll(Arrays.asList(value));
-    packagesToScan.addAll(Arrays.asList(basePackages));
+    
+    if (!ObjectUtils.isEmpty(value)) {
+      packagesToScan.addAll(Arrays.asList(value));
+    }
 
     for (Class<?> basePackageClass : basePackageClasses) {
       packagesToScan.add(ClassUtils.getPackageName(basePackageClass));

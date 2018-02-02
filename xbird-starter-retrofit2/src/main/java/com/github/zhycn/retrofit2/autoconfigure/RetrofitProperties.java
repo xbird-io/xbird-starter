@@ -9,18 +9,27 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class RetrofitProperties {
 
   private Long readTimeout = 10000L;
-
   private Long writeTimeout = 10000L;
-
   private Long connectTimeout = 10000L;
-
-  private Integer maxIdleConnections = 5;
-
-  private Integer keepAliveDuration = 5;
-
-  private int retries = 0;
-  
+  private Integer maxIdle = 5;
+  private Integer keepAlive = 5;
   private Map<String, String> endpoints = new HashMap<>();
+
+  public Long getConnectTimeout() {
+    return connectTimeout;
+  }
+
+  public Map<String, String> getEndpoints() {
+    return endpoints;
+  }
+
+  public Integer getKeepAlive() {
+    return keepAlive;
+  }
+
+  public Integer getMaxIdle() {
+    return maxIdle;
+  }
 
   public Long getReadTimeout() {
     return readTimeout;
@@ -30,24 +39,20 @@ public class RetrofitProperties {
     return writeTimeout;
   }
 
-  public Long getConnectTimeout() {
-    return connectTimeout;
+  public void setConnectTimeout(Long connectTimeout) {
+    this.connectTimeout = connectTimeout;
   }
 
-  public Integer getMaxIdleConnections() {
-    return maxIdleConnections;
+  public void setEndpoints(Map<String, String> endpoints) {
+    this.endpoints = endpoints;
   }
 
-  public Integer getKeepAliveDuration() {
-    return keepAliveDuration;
+  public void setKeepAlive(Integer keepAlive) {
+    this.keepAlive = keepAlive;
   }
 
-  public int getRetries() {
-    return retries;
-  }
-
-  public Map<String, String> getEndpoints() {
-    return endpoints;
+  public void setMaxIdle(Integer maxIdle) {
+    this.maxIdle = maxIdle;
   }
 
   public void setReadTimeout(Long readTimeout) {
@@ -56,26 +61,6 @@ public class RetrofitProperties {
 
   public void setWriteTimeout(Long writeTimeout) {
     this.writeTimeout = writeTimeout;
-  }
-
-  public void setConnectTimeout(Long connectTimeout) {
-    this.connectTimeout = connectTimeout;
-  }
-
-  public void setMaxIdleConnections(Integer maxIdleConnections) {
-    this.maxIdleConnections = maxIdleConnections;
-  }
-
-  public void setKeepAliveDuration(Integer keepAliveDuration) {
-    this.keepAliveDuration = keepAliveDuration;
-  }
-
-  public void setRetries(int retries) {
-    this.retries = retries;
-  }
-
-  public void setEndpoints(Map<String, String> endpoints) {
-    this.endpoints = endpoints;
   }
 
 }

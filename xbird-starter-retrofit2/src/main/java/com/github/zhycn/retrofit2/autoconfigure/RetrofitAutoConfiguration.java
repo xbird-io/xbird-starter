@@ -27,7 +27,6 @@ import com.github.zhycn.retrofit2.context.DefaultRetrofitContext;
 import com.github.zhycn.retrofit2.context.RetrofitContext;
 
 import okhttp3.ConnectionPool;
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
@@ -41,11 +40,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 public class RetrofitAutoConfiguration {
 
   Logger LOGGER = LoggerFactory.getLogger(RetrofitAutoConfiguration.class);
-
   private final List<Converter.Factory> converterFactories;
-
   private final OkHttpClient okHttpClient;
-
   private final RetrofitProperties retrofitProperties;
 
   @Autowired
@@ -64,24 +60,18 @@ public class RetrofitAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public ConnectionPool connectionPool(RetrofitProperties properties) {
-      return new ConnectionPool(properties.getMaxIdleConnections(),
-        properties.getKeepAliveDuration(), MINUTES);
+      return new ConnectionPool(properties.getMaxIdle(), properties.getKeepAlive(), MINUTES);
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public OkHttpClient okHttpClient(RetrofitProperties properties, ConnectionPool connectionPool,
-        List<Interceptor> interceptors) {
+    public OkHttpClient okHttpClient(RetrofitProperties properties, ConnectionPool connectionPool) {
 
       OkHttpClient.Builder builder =
           new OkHttpClient.Builder().readTimeout(properties.getReadTimeout(), TimeUnit.MILLISECONDS)
               .writeTimeout(properties.getWriteTimeout(), TimeUnit.MILLISECONDS)
               .connectTimeout(properties.getConnectTimeout(), TimeUnit.MILLISECONDS)
               .connectionPool(connectionPool);
-
-      for (Interceptor interceptor : interceptors) {
-        builder.addInterceptor(interceptor);
-      }
 
       return builder.build();
     }
@@ -130,7 +120,7 @@ public class RetrofitAutoConfiguration {
       String url = endpoints.get(key);
       Assert.isTrue(ResourceUtils.isUrl(url), url + " is not a valid url");
       if (!url.endsWith("/")) {
-        LOGGER.warn(
+        LOGGER.error(
             "The [{}] didn't end with \"/\". This means a relative base url, end with / would be better.",
             url);
       }

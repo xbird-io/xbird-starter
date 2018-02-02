@@ -5,6 +5,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import retrofit2.Retrofit;
 
+/**
+ * @author zhycn
+ * @since 1.0.0 2018-02-02
+ */
 public class DefaultRetrofitContext extends ConcurrentHashMap<String, Retrofit>
     implements
       RetrofitContext {
@@ -22,19 +26,13 @@ public class DefaultRetrofitContext extends ConcurrentHashMap<String, Retrofit>
   }
 
   @Override
-  public Optional<Retrofit> get(String identity) {
-    return Optional.ofNullable(super.get(identity));
+  public Optional<Retrofit> find(String identity) {
+    return Optional.ofNullable(get(identity));
   }
 
   @Override
-  public boolean contains(String identity) {
+  public boolean exists(String identity) {
     return containsKey(identity);
-  }
-
-  @Override
-  public boolean empty() {
-    clear();
-    return true;
   }
 
 }

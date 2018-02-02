@@ -12,8 +12,6 @@ import com.github.zhycn.retrofit2.annotations.RetrofitClient;
 import com.github.zhycn.retrofit2.context.RetrofitContext;
 
 /**
- * 服务适配器
- * 
  * @author zhycn
  * @since 1.0.0 2018-02-02
  */
@@ -24,7 +22,6 @@ public class RetrofitServiceBeanPostProcessorAdapter
       PriorityOrdered {
 
   static final String BEAN_NAME = "retrofitServiceBeanPostProcessorAdapter";
-
   private BeanFactory beanFactory;
   private RetrofitServiceFactory retrofitServiceFactory;
 
@@ -45,9 +42,8 @@ public class RetrofitServiceBeanPostProcessorAdapter
 
     if (beanClass.isAnnotationPresent(RetrofitClient.class)) {
       RetrofitClient annotation = beanClass.getAnnotation(RetrofitClient.class);
-      String retrofitId =
-          "".equals(annotation.retrofit()) ? annotation.value() : annotation.retrofit();
-      ret = getRetrofitServiceFactory().createServiceInstance(beanClass, retrofitId);
+      String identity = annotation.value();
+      ret = getRetrofitServiceFactory().createServiceInstance(beanClass, identity);
     }
 
     return ret;
@@ -58,7 +54,6 @@ public class RetrofitServiceBeanPostProcessorAdapter
 
     if (retrofitServiceFactory == null) {
       RetrofitContext context = beanFactory.getBean(RetrofitContext.class);
-
       retrofitServiceFactory = new RetrofitServiceFactory(context);
     }
 
