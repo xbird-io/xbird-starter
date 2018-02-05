@@ -1,7 +1,7 @@
 package com.github.zhycn.retrofit2.autoconfigure;
 
 import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS;
-import static java.util.concurrent.TimeUnit.MINUTES;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 import java.util.List;
 import java.util.Map;
@@ -50,7 +50,7 @@ public class RetrofitAutoConfiguration {
     this.converterFactories = converterFactories;
     this.okHttpClient = okHttpClient;
     this.retrofitProperties = retrofitProperties;
-    checkConfiguredUrl(this.retrofitProperties);
+    this.checkConfiguredUrl(retrofitProperties);
   }
 
   @Configuration
@@ -60,7 +60,7 @@ public class RetrofitAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public ConnectionPool connectionPool(RetrofitProperties properties) {
-      return new ConnectionPool(properties.getMaxIdle(), properties.getKeepAlive(), MINUTES);
+      return new ConnectionPool(properties.getMaxIdle(), properties.getKeepAlive(), SECONDS);
     }
 
     @Bean

@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.3.0
+
+- [新增] 集成HTTP客户端模块 `xbird-starter-retrofit2`。
+
 ### 1.2.0 2018-02-01
 
 - [优化] 更新父项目为`platform-bom`。

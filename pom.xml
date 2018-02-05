@@ -74,6 +74,11 @@
 				<version>${xbird.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>xbird-starter-retrofit2</artifactId>
+				<version>${xbird.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
 				<version>${apache.commons-lang3.version}</version>

@@ -12,7 +12,7 @@ public class RetrofitProperties {
   private Long writeTimeout = 10000L;
   private Long connectTimeout = 10000L;
   private Integer maxIdle = 5;
-  private Integer keepAlive = 5;
+  private Integer keepAlive = 300; 
   private Map<String, String> endpoints = new HashMap<>();
 
   public Long getConnectTimeout() {
