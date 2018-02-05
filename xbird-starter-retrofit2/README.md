@@ -24,7 +24,7 @@ A type-safe HTTP client for Android and Java
 
 ```
 @SpringBootApplication
-@RetrofitClientScan
+@RetrofitClientScan({"com.github.xxx"})
 public class Application {
 
   public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class Application {
 
 ## 使用向导
 
-第一步：定义服务接口
+第一步：定义服务接口和节点名称
 
 ```
 @RetrofitClient("github")
