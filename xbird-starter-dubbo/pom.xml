@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>xbird-starter-retrofit2</artifactId>
+	<artifactId>xbird-starter-dubbo</artifactId>
 	<packaging>jar</packaging>
-	<name>Xbird Starter Retrofit2</name>
-	<description>Integrating the type-safe HTTP client for Spring Boot.</description>
+	<name>Xbird Starter Dubbo</name>
+	<description>A high-performance, java based, open source RPC framework.</description>
 	<url>https://zhycn.github.io/xbird-starter/</url>
 
 	<licenses>
@@ -40,14 +40,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.squareup.retrofit2</groupId>
-			<artifactId>retrofit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.squareup.retrofit2</groupId>
-			<artifactId>converter-jackson</artifactId>
 		</dependency>
 	</dependencies>
 
