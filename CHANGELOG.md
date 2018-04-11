@@ -1,9 +1,5 @@
 # Changelog
 
-### 1.4.0
-
-- [新增] 集成DUBBO模块 `xbird-starter-dubbo`。
-
 ### 1.3.0
 
 - [新增] 集成HTTP客户端模块 `xbird-starter-retrofit2`。

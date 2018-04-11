@@ -1,1 +1,0 @@
-# xbird-starter-dubbo
