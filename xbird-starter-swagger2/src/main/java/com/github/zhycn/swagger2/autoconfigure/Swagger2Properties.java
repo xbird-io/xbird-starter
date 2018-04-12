@@ -1,4 +1,4 @@
-package com.github.zhycn.swagger2;
+package com.github.zhycn.swagger2.autoconfigure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -7,21 +7,18 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 
 /**
- * Swagger2 Configuration Properties
+ * Swagger2 Configuration Properties.
  * 
  * @author zhycn
  * @since 1.0.0 2018-01-30
  */
 @ConfigurationProperties(prefix = "xbird.swagger2")
 public class Swagger2Properties {
-
-  // 是否开启 Swagger2
-  private boolean enabled = false;
   
   // 扫描基础包
   private String basePackage;
   
-  // API information
+  // 设置API信息
   private String title = "Api Documentation";
   private String description = "Api Documentation";
   private String termsOfServiceUrl;
@@ -40,15 +37,9 @@ public class Swagger2Properties {
         .version(version)
         .termsOfServiceUrl(termsOfServiceUrl)
         .contact(new Contact(contact.getName(), contact.getUrl(), contact.getEmail()))
-        .license(license).licenseUrl(licenseUrl).build();
-  }
-
-  public boolean isEnabled() {
-    return enabled;
-  }
-
-  public void setEnabled(boolean enabled) {
-    this.enabled = enabled;
+        .license(license)
+        .licenseUrl(licenseUrl)
+        .build();
   }
 
   public String getBasePackage() {

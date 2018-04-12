@@ -5,14 +5,20 @@ import java.util.Map;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * Retrofit Configuration properties.
+ * 
+ * @author zhycn
+ * @since 1.0.0 2018-04-12
+ */
 @ConfigurationProperties(prefix = "xbird.retrofit2")
 public class RetrofitProperties {
 
-  private Long readTimeout = 10000L;
-  private Long writeTimeout = 10000L;
-  private Long connectTimeout = 10000L;
+  private Long readTimeout = 8000L;
+  private Long writeTimeout = 8000L;
+  private Long connectTimeout = 5000L;
   private Integer maxIdle = 5;
-  private Integer keepAlive = 300; 
+  private Integer keepAlive = 120; 
   private Map<String, String> endpoints = new HashMap<>();
 
   public Long getConnectTimeout() {

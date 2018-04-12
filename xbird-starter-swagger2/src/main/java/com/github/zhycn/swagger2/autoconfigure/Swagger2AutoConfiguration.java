@@ -1,4 +1,4 @@
-package com.github.zhycn.swagger2;
+package com.github.zhycn.swagger2.autoconfigure;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,14 +17,14 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Swagger2AutoConfiguration
+ * Swagger2 Auto-configuration
  * 
  * @author zhycn
  * @since 1.0.0 2018-01-30
  */
 @Configuration
 @EnableSwagger2
-@ConditionalOnProperty(name = "xbird.swagger2.enabled", havingValue = "true", matchIfMissing = false)
+@ConditionalOnProperty(prefix = "xbird.swagger2", name = "enabled", havingValue = "true", matchIfMissing = false)
 @EnableConfigurationProperties(Swagger2Properties.class)
 public class Swagger2AutoConfiguration {
 
@@ -37,11 +37,14 @@ public class Swagger2AutoConfiguration {
   @ConditionalOnMissingBean
   public Docket defaultDocketApi() {
     LOGGER.info("Init Swagger2.");
-    return new Docket(DocumentationType.SWAGGER_2).apiInfo(properties.build()).select()
+    return new Docket(DocumentationType.SWAGGER_2)
+        .apiInfo(properties.build())
+        .select()
         .apis(StringUtils.isEmpty(properties.getBasePackage())
             ? RequestHandlerSelectors.any()
             : RequestHandlerSelectors.basePackage(properties.getBasePackage()))
-        .paths(PathSelectors.any()).build();
+        .paths(PathSelectors.any())
+        .build();
   }
 
 }

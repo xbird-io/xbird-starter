@@ -27,7 +27,7 @@ import com.github.zhycn.retrofit2.annotations.RetrofitClientScan;
  */
 public class RetrofitServiceFactoryBeanRegistrar implements ImportBeanDefinitionRegistrar {
 
-  Logger LOGGER = LoggerFactory.getLogger(RetrofitServiceFactoryBeanRegistrar.class);
+  private final static Logger LOGGER = LoggerFactory.getLogger(RetrofitServiceFactoryBeanRegistrar.class);
 
   @Override
   public void registerBeanDefinitions(AnnotationMetadata annotationMetadata,
@@ -36,6 +36,7 @@ public class RetrofitServiceFactoryBeanRegistrar implements ImportBeanDefinition
       registry.registerBeanDefinition(RetrofitServiceBeanPostProcessorAdapter.BEAN_NAME,
           new RootBeanDefinition(RetrofitServiceBeanPostProcessorAdapter.class));
     }
+    
     doRegisterRetrofitServiceBeanDefinitions(annotationMetadata, registry);
   }
 
@@ -43,7 +44,6 @@ public class RetrofitServiceFactoryBeanRegistrar implements ImportBeanDefinition
       BeanDefinitionRegistry registry) {
     RetrofitServiceComponentProvider provider = RetrofitServiceComponentProvider.getInstance();
 
-    // Find packages to scan for Retrofit services.
     Set<String> packagesToScan = getPackagesToScan(annotationMetadata);
 
     for (String packageToScan : packagesToScan) {
