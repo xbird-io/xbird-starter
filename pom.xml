@@ -42,7 +42,6 @@
 
 	<modules>
 		<!-- <module>xbird-starter-bom</module> -->
-		<module>xbird-starter-jwt</module>
 		<module>xbird-starter-swagger2</module>
 		<module>xbird-starter-retrofit2</module>
 	</modules>
@@ -68,11 +67,6 @@
 				<version>${spring.cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.github.zhycn</groupId>
-				<artifactId>xbird-starter-jwt</artifactId>
-				<version>${xbird.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.zhycn</groupId>
