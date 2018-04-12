@@ -28,7 +28,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
     <parent>
         <groupId>com.github.zhycn</groupId>
         <artifactId>xbird-starter</artifactId>
-        <version>2.0.0</version>
+        <version>2.0.0-SNAPSHOT</version>
         <relativePath />
     </parent>
 
@@ -66,7 +66,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>xbird-starter</artifactId>
-                <version>2.0.0</version>
+                <version>2.0.0-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
