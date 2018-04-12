@@ -39,7 +39,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 @EnableConfigurationProperties(RetrofitProperties.class)
 public class RetrofitAutoConfiguration {
 
-  Logger LOGGER = LoggerFactory.getLogger(RetrofitAutoConfiguration.class);
+  private final static Logger LOGGER = LoggerFactory.getLogger(RetrofitAutoConfiguration.class);
   private final List<Converter.Factory> converterFactories;
   private final OkHttpClient okHttpClient;
   private final RetrofitProperties retrofitProperties;
@@ -66,13 +66,11 @@ public class RetrofitAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public OkHttpClient okHttpClient(RetrofitProperties properties, ConnectionPool connectionPool) {
-
       OkHttpClient.Builder builder =
           new OkHttpClient.Builder().readTimeout(properties.getReadTimeout(), TimeUnit.MILLISECONDS)
               .writeTimeout(properties.getWriteTimeout(), TimeUnit.MILLISECONDS)
               .connectTimeout(properties.getConnectTimeout(), TimeUnit.MILLISECONDS)
               .connectionPool(connectionPool);
-
       return builder.build();
     }
   }
@@ -103,14 +101,18 @@ public class RetrofitAutoConfiguration {
   public RetrofitContext retrofitContext() {
     Builder builder = new Builder().validateEagerly(true);
     converterFactories.forEach(builder::addConverterFactory);
+    
     if (okHttpClient != null) {
       builder.client(okHttpClient);
     }
+    
     RetrofitContext context = new DefaultRetrofitContext();
     Map<String, String> endpoints = retrofitProperties.getEndpoints();
+    
     endpoints.keySet().forEach(key -> {
       context.register(key, builder.baseUrl(endpoints.get(key)).build());
     });
+    
     return context;
   }
 
@@ -126,4 +128,5 @@ public class RetrofitAutoConfiguration {
       }
     });
   }
+  
 }
