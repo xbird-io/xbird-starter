@@ -7,6 +7,7 @@
 - [升级] 升级Druid版到1.1.9，主要变更是支持Spring Boot 2.0
 - [优化] 优化xbird-starter-swagger2模块代码。
 - [优化] 优化xbird-starter-retrofit2模块代码。
+- [新增] 添加[Hutool](http://www.hutool.cn/)工具包，一个丰富的国产开源工具集。
 
 ### 1.3.0 2018-03-06
 
