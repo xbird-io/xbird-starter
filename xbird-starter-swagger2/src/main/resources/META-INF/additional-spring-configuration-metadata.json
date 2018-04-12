@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "xbird.swagger2.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable Swagger2.",
+      "defaultValue": false
+    }
+  ]
+}
