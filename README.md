@@ -129,3 +129,8 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 | com.squareup.retrofit2 | converter-protobuf | 2.3.0 | [Official](http://square.github.io/retrofit/) | 
 | com.squareup.retrofit2 | converter-simplexml | 2.3.0 | [Official](http://square.github.io/retrofit/) | 
 | com.squareup.retrofit2 | converter-wire | 2.3.0 | [Official](http://square.github.io/retrofit/) | 
+| cn.hutool | hutool-all | 4.0.9 | [Official](http://www.hutool.cn/) |
+| com.alibaba.spring.boot | dubbo-spring-boot-starter | 2.0.0 | [Official](https://github.com/alibaba/dubbo-spring-boot-starter) |
+| org.apache.zookeeper | zookeeper | 3.4.11 | [Official](http://zookeeper.apache.org/) |
+| com.101tec | zkclient | 0.10 | [Official](https://github.com/sgroschupf/zkclient) |
+| javax.ws.rs | javax.ws.rs-api | 2.1 | [Official](https://github.com/jax-rs) |
