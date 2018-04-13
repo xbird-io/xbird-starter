@@ -134,7 +134,7 @@ public class BookConsumer {
 
 ## 建议
 
-1. 如果你对Dubbo不够熟悉，请参考[Dubbo用户手册](http://dubbo.apache.org/books/dubbo-user-book/references/registry/zookeeper.html)，了解Dubbo的原理、协议和配置。
+1. 如果你对Dubbo不够熟悉，请阅读[Dubbo用户手册](http://dubbo.apache.org/books/dubbo-user-book/references/registry/zookeeper.html)，了解Dubbo的原理、协议和配置等相关信息。
 2. 你也可以下载 [dubbo-samples](https://github.com/zhycn/dubbo-samples) 演示项目，感受一下。
 
 ## 更多配置参考
