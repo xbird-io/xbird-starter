@@ -8,8 +8,8 @@
 - [优化] 优化xbird-starter-swagger2模块代码。
 - [优化] 优化xbird-starter-retrofit2模块代码。
 - [新增] 添加[Hutool](http://www.hutool.cn/)工具包，一个丰富的国产开源工具集。
+- [新增] 添加Dubbo依赖包管理。
 - [新增] 集成Dubbo分布式服务框架模块 `xbird-starter-dubbo`。
-- [新增] 在Dubbo基础上，集成jboss开源的RestEasy框架，支持基于HTTP的RESTful风格调用模块 `xbird-starter-dubbo-resteasy`。
 
 ### 1.3.0 2018-03-06
 
