@@ -84,7 +84,7 @@ public class BookServiceImpl implements BookService {
 
 ```
 # 应用名称，等价于：spring.application.name
-spring.dubbo.application.name=dubbo-samples-provider
+spring.dubbo.application.name=dubbo-samples-consumer
 # 应用组织名称
 spring.dubbo.application.organization=github
 # 应用所有者
@@ -134,24 +134,24 @@ public class BookConsumer {
 
 ## 建议
 
-1. 如果你对Dubbo不够熟悉，请参考[Dubbo用户手册](http://dubbo.apache.org/books/dubbo-user-book/references/registry/zookeeper.html)。了解Dubbo的原理、协议和配置。
+1. 如果你对Dubbo不够熟悉，请参考[Dubbo用户手册](http://dubbo.apache.org/books/dubbo-user-book/references/registry/zookeeper.html)，了解Dubbo的原理、协议和配置。
 2. 你也可以下载 [dubbo-samples](https://github.com/zhycn/dubbo-samples) 演示项目，感受一下。
 
 ## 更多配置参考
 
 Dubbo的配置非常灵活，大多数配置参数都是可选的，这里我们介绍一些主要的配置参数。如果你感兴趣的话，最好花点时间看看Dubbo的源码，你会受益良多。
 
-同时，你应当更多的关注Dubbo提供的 `@Service` 和 `@Reference` 注解，大多数配置都可以通过注解来完成。
+同时，我们建议你更多的关注Dubbo提供的 `@Service` 和 `@Reference` 注解，大多数配置都可以通过注解来完成。
 
 ```
 ## ApplicationConfig（可选）
 ## 应用配置：用于配置当前应用信息，不管该应用是提供者还是消费者。
 # 应用名称（可选，推荐设置）
-spring.dubbo.application.name=lakala-integration-dubbo
+spring.dubbo.application.name=dubbo-samples-provider
 # 应用组织/公司名（可选）
-spring.dubbo.application.organization=LAKALA
+spring.dubbo.application.organization=github
 # 应用所有者/部门（可选）
-spring.dubbo.application.owner=LAKALA_MPOS
+spring.dubbo.application.owner=zhycn
 # 应用版本（可选，如果提供者指定版本，则消费者也必须指定版本）
 spring.dubbo.application.version=1.0.0
 # 应用环境（可选，如果提供者指定环境，则消费者也必须指定环境）
@@ -160,7 +160,7 @@ spring.dubbo.application.environment=dev
 ## RegistryConfig （必须）
 ## 注册中心配置：用于配置连接注册中心相关信息。
 # 注册中心地址（必填，多个地址用逗号`,`隔开）
-spring.dubbo.registry.address=10.7.111.118:2181
+spring.dubbo.registry.address=10.7.112.125:2181
 # 指定服务注册/消费的组名（可选）
 spring.dubbo.registry.group=TZ
 # 注册中心协议（可选，默认值：zookeeper）
