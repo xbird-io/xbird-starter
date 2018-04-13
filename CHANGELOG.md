@@ -1,6 +1,6 @@
 # Changelog
 
-### 2.0.0 
+### 2.0.0 2018-04-13
 
 - [升级] 升级platform-bom版本到Cairo-RELEASE，支持Spring 5. [查看详情](https://docs.spring.io/platform/docs/Cairo-RELEASE/reference/htmlsingle/)
 - [升级] 升级Spring Cloud版本到Edgware.SR3
