@@ -3,7 +3,7 @@
 Dubbo是一个开源的分布式服务治理框架，现已成功Apache基金会的一个孵化项目。
 
 - 官网：http://dubbo.apache.org/
-- 用户手册：http://dubbo.apache.org/books/dubbo-user-book/references/registry/zookeeper.html
+- 用户手册：http://dubbo.apache.org/books/dubbo-user-book/
 - Zookeeper 配置中心：http://dubbo.apache.org/books/dubbo-user-book/references/registry/zookeeper.html
 - dubbo-spring-boot-starter：https://github.com/alibaba/dubbo-spring-boot-starter
 - 简单示例项目：https://github.com/zhycn/dubbo-samples
@@ -250,7 +250,7 @@ RestEasy 是 JBoss 开源的比较成熟的 REST 框架，是 JAX-RS 规范的�
 </dependency>
 ```
 
-详情请查看：[xbird-starter-resteasy](../xbird-starter-resteasy/) 项目。
+配置请查看：[xbird-starter-resteasy](../xbird-starter-resteasy/) 项目。
 
 接下来，你可以在属性配置文件中指定协议、端口和运行容器（可选）：
 
@@ -262,3 +262,5 @@ spring.dubbo.protocol.port=20881
 # 运行容器名称，支持tomcat,jetty等。
 spring.dubbo.protocol.server=tomcat
 ```
+
+运行服务，可通过HTTP请求服务。
