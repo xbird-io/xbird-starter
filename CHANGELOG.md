@@ -2,7 +2,7 @@
 
 ### 2.1.0
 
-- [新增] 基于JBoss开源的RESTEasy框架，为Dubbo提供RESTful服务模块 `xbird-starter-dubbo-resteasy`。
+- [新增] 集成JBoss开源的RESTEasy框架模块 `xbird-starter-resteasy`。
 
 ### 2.0.0 2018-04-13
 

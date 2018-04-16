@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>xbird-starter-dubbo-resteasy</artifactId>
+	<artifactId>xbird-starter-resteasy</artifactId>
 	<packaging>jar</packaging>
-	<name>Xbird Starter Dubbo RESTEasy</name>
-	<description>Integrating the Dubbo RESTEasy for Spring Boot.</description>
+	<name>Xbird Starter RESTEasy</name>
+	<description>Integrating the RESTEasy for Spring Boot.</description>
 	<url>https://zhycn.github.io/xbird-starter/</url>
 
 	<licenses>
@@ -95,5 +95,5 @@
 			<version>1.1.2</version>
 		</dependency>
 	</dependencies>
-
+	
 </project>

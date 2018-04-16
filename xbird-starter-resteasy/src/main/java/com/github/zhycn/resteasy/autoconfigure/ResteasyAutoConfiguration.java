@@ -12,7 +12,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.zhycn.dubbo.resteasy.autoconfigure;
+package com.github.zhycn.resteasy.autoconfigure;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -38,8 +38,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.zhycn.dubbo.resteasy.boot.ResteasyApplicationBuilder;
-import com.github.zhycn.dubbo.resteasy.boot.ResteasyEmbeddedServletInitializer;
+import com.github.zhycn.resteasy.boot.ResteasyApplicationBuilder;
+import com.github.zhycn.resteasy.boot.ResteasyEmbeddedServletInitializer;
 
 /**
  * This is the main class that configures this Resteasy Sring Boot starter
