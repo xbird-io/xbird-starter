@@ -43,6 +43,7 @@
 	<modules>
 		<!-- <module>xbird-starter-bom</module> -->
 		<module>xbird-starter-dubbo</module>
+		<module>xbird-starter-dubbo-resteasy</module>
 		<module>xbird-starter-swagger2</module>
 		<module>xbird-starter-retrofit2</module>
 	</modules>
@@ -63,6 +64,7 @@
 		<hutool.version>4.0.9</hutool.version>
 		<zkclient.version>0.10</zkclient.version>
 		<javax.ws.rs.version>2.1</javax.ws.rs.version>
+		<jboss.resteasy.version>3.5.0.CR4</jboss.resteasy.version>
 	</properties>
 
 	<dependencyManagement>
@@ -77,6 +79,11 @@
 			<dependency>
 				<groupId>com.github.zhycn</groupId>
 				<artifactId>xbird-starter-dubbo</artifactId>
+				<version>${xbird.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>xbird-starter-dubbo-resteasy</artifactId>
 				<version>${xbird.version}</version>
 			</dependency>
 			<dependency>

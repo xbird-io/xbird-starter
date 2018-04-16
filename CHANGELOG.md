@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.1.0
+
+- [新增] 基于JBoss开源的RESTEasy框架，为Dubbo提供RESTful服务模块 `xbird-starter-dubbo-resteasy`。
+
 ### 2.0.0 2018-04-13
 
 - [升级] 升级platform-bom版本到Cairo-RELEASE，支持Spring 5. [查看详情](https://docs.spring.io/platform/docs/Cairo-RELEASE/reference/htmlsingle/)
