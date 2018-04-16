@@ -40,8 +40,8 @@ spring.dubbo.registry.client=zkclient
 
 # 协议名称，默认值：dubbo
 spring.dubbo.protocol.name=dubbo
-# 协议地址，默认值：28080
-spring.dubbo.protocol.port=28080
+# 协议地址，默认值：20880
+spring.dubbo.protocol.port=20880
 ```
 
 接下来，在 Spring Boot Application上添加注解`@EnableDubboConfiguration`, 表示开启服务。
@@ -181,8 +181,8 @@ spring.dubbo.registry.password=
 ## Dubbo支持多种协议：不同协议都给出了默认配置方案。
 # 指定协议名称（可选，默认值：dubbo）
 spring.dubbo.protocol.name=dubbo
-# 指定端口号（可选，默认值：28080）
-spring.dubbo.protocol.port=28080
+# 指定端口号（可选，默认值：20880）
+spring.dubbo.protocol.port=20880
 # 最大请求数据长度（可选，默认值：8M）
 spring.dubbo.protocol.payload=
 
