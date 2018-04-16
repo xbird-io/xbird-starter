@@ -8,17 +8,15 @@
 
 2. 由于在测试的过程中，发现官方提供的最新稳定版 `3.5.0.Final` 中，`resteasy-client` 模块的Maven打包存在问题，故采用了 RESTEasy 3.5.0.RC4 版本。（后续会持续跟进这个问题）
 
-3. JAX-RS 与 Spring MVC 的不可共用性，决定了在使用本项目时，意味着项目中 Spring MVC 相关的Web请求将会生效。
+3. JAX-RS 与 Spring MVC 的不可共用性，决定了在使用本项目时，意味着项目中 Spring MVC 相关的Web请求将会无效。
 
-4. 本项目适用于服务提供者，作为服务消费都可集成`xbird-starter-dubbo`依赖，无需集成 RESTEasy 框架。
-
-5. 本项目是 `xbird-starter-dubbo` 模块的增强，如果不需要对外提供 RESTful 服务，则无需使用本项目。
+4. 本项目是 `xbird-starter-dubbo` 模块的增强，旨在对象提供 RESTful 服务。适用于服务提供者，作为服务消费者只需集成 `xbird-starter-dubbo`项目即可。
 
 ## 快速开始
 
 > 请先阅读使用须知。
 
-第一步，你应该按照 [xbird-starter-dubbo](../xbird-starter-dubbo/) 模块的文档完成配置。
+第一步，你应当按照 [xbird-starter-dubbo](../xbird-starter-dubbo/) 模块的文档先完成 Dubbo 配置。
 
 第二步，作为服务生产者，在你的 Spring Boot 2.x 项目中添加依赖配置：
 
@@ -27,11 +25,6 @@
   <groupId>com.github.zhycn</groupId>
   <artifactId>xbird-starter-dubbo</artifactId>
 </dependency>
-```
-
-修改为：
-
-```
 <dependency>
   <groupId>com.github.zhycn</groupId>
   <artifactId>xbird-starter-dubbo-resteasy</artifactId>
@@ -90,7 +83,7 @@ public interface BookService {
 第七步，启动服务生产者，即可通过HTTP访问服务：
 
 ```
-http://localhost:9001/services/books
+http://[HOST]:[PORT]/services/books
 ```
 
-> 作为服务消费者，如果不对外提供服务的话，只需按照 `xbird-starter-dubbo` 模块文档配置即可，不需要做任何修改。
+> 作为服务消费者，如果不对外提供服务的话，只需按照 `xbird-starter-dubbo` 模块配置即可，不需要做任何修改。

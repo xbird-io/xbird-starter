@@ -42,10 +42,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.github.zhycn</groupId>
-			<artifactId>xbird-starter-dubbo</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
