@@ -234,3 +234,31 @@ spring.dubbo.consumer.async=
 # 异步发送是否等待发送成功（可选）
 spring.dubbo.consumer.sent=
 ```
+
+## Dubbo + RestEasy 构建 RESTful 风格的远程调用
+
+RestEasy 是 JBoss 开源的比较成熟的 REST 框架，是 JAX-RS 规范的一种实现。为了支持基于 Dubbo 构建的分布式系统服务对外提供 RESTful 风格的远程调用，我们通过集成 RESTEasy 框架来解决这个问题。
+
+### 开始集成
+
+首先完成 Dubbo 的配置，然后在服务提供者项目中集成 `xbird-starter-resteasy`：
+
+```
+<dependency>
+  <groupId>com.github.zhycn</groupId>
+  <artifactId>xbird-starter-resteasy</artifactId>
+</dependency>
+```
+
+详情请查看：[xbird-starter-resteasy](../xbird-starter-resteasy/) 项目。
+
+接下来，你可以在属性配置文件中指定协议、端口和运行容器（可选）：
+
+```
+# 协议名称，默认值：dubbo
+spring.dubbo.protocol.name=rest
+# 协议地址，默认值：20880
+spring.dubbo.protocol.port=20881
+# 运行容器名称，支持tomcat,jetty等。
+spring.dubbo.protocol.server=tomcat
+```

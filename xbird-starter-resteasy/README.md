@@ -30,9 +30,9 @@ public class JaxrsApplicationPath extends Application {
 
 ```
 <dependency>
-	<groupId>javax.ws.rs</groupId>
-	<artifactId>javax.ws.rs-api</artifactId>
-	<version>2.1</version>
+  <groupId>javax.ws.rs</groupId>
+  <artifactId>javax.ws.rs-api</artifactId>
+  <version>2.1</version>
 </dependency>
 ```
 
@@ -62,5 +62,5 @@ http://[HOST]:[PORT]/services/books
 
 ## 注意事项
 
-1. 本项目中使用 Jackson 来处理序列化和反序列化。
-2. 如果你在 Spring Boot 项目中引入本项目，则会覆盖 Spring MVC 提供的服务。
+1. 本项目中支持JSON和XML格式输入和输出。
+2. 如果你在 Spring MVC 项目中引入本项目，则会覆盖 Spring MVC 提供的服务。
