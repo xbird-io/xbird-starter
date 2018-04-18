@@ -1,8 +1,9 @@
 # Changelog
 
-### 2.1.0
+### 2.1.0 2018-04-18
 
 - [新增] 集成JBoss开源的RESTEasy框架模块 `xbird-starter-resteasy`。
+- [新增] 添加RESTEasy 与 Dubbo 集成的文档。
 
 ### 2.0.0 2018-04-13
 
