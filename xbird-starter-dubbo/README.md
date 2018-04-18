@@ -3,7 +3,7 @@
 Dubbo是一个开源的分布式服务治理框架，现已成功Apache基金会的一个孵化项目。
 
 - 官网：http://dubbo.apache.org/
-- 用户手册：http://dubbo.apache.org/books/dubbo-user-book/references/registry/zookeeper.html
+- 用户手册：http://dubbo.apache.org/books/dubbo-user-book/
 - Zookeeper 配置中心：http://dubbo.apache.org/books/dubbo-user-book/references/registry/zookeeper.html
 - dubbo-spring-boot-starter：https://github.com/alibaba/dubbo-spring-boot-starter
 - 简单示例项目：https://github.com/zhycn/dubbo-samples
@@ -40,8 +40,8 @@ spring.dubbo.registry.client=zkclient
 
 # 协议名称，默认值：dubbo
 spring.dubbo.protocol.name=dubbo
-# 协议地址，默认值：28080
-spring.dubbo.protocol.port=28080
+# 协议地址，默认值：20880
+spring.dubbo.protocol.port=20880
 ```
 
 接下来，在 Spring Boot Application上添加注解`@EnableDubboConfiguration`, 表示开启服务。
@@ -181,8 +181,8 @@ spring.dubbo.registry.password=
 ## Dubbo支持多种协议：不同协议都给出了默认配置方案。
 # 指定协议名称（可选，默认值：dubbo）
 spring.dubbo.protocol.name=dubbo
-# 指定端口号（可选，默认值：28080）
-spring.dubbo.protocol.port=28080
+# 指定端口号（可选，默认值：20880）
+spring.dubbo.protocol.port=20880
 # 最大请求数据长度（可选，默认值：8M）
 spring.dubbo.protocol.payload=
 
@@ -234,3 +234,33 @@ spring.dubbo.consumer.async=
 # 异步发送是否等待发送成功（可选）
 spring.dubbo.consumer.sent=
 ```
+
+## Dubbo + RestEasy 构建 RESTful 风格的远程调用
+
+RestEasy 是 JBoss 开源的比较成熟的 REST 框架，是 JAX-RS 规范的一种实现。为了支持基于 Dubbo 构建的分布式系统服务对外提供 RESTful 风格的远程调用，我们通过集成 RESTEasy 框架来解决这个问题。
+
+### 开始集成
+
+首先完成 Dubbo 的配置，然后在服务提供者项目中集成 `xbird-starter-resteasy`：
+
+```
+<dependency>
+  <groupId>com.github.zhycn</groupId>
+  <artifactId>xbird-starter-resteasy</artifactId>
+</dependency>
+```
+
+配置请查看：[xbird-starter-resteasy](../xbird-starter-resteasy/) 项目。
+
+接下来，你可以在属性配置文件中指定协议、端口和运行容器（可选）：
+
+```
+# 协议名称，默认值：dubbo
+spring.dubbo.protocol.name=rest
+# 协议地址，默认值：20880
+spring.dubbo.protocol.port=20881
+# 运行容器名称，支持tomcat,jetty等。
+spring.dubbo.protocol.server=tomcat
+```
+
+运行服务，可通过HTTP请求服务。
