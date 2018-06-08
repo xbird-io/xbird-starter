@@ -1,18 +1,16 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work for additional information regarding
+ * copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
  */
 package com.github.zhycn.id.factory;
 
@@ -21,23 +19,29 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Pattern;
 
-import com.github.zhycn.id.boot.DefaultLeafSegmentService;
-import com.github.zhycn.id.boot.LeafSegment;
-import com.github.zhycn.id.boot.LeafSegmentAware;
-import com.github.zhycn.id.boot.LeafSegmentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.github.zhycn.id.domain.LeafSegmentEntity;
+import com.github.zhycn.id.factory.support.LeafSegmentPostProccessor;
+import com.github.zhycn.id.factory.support.LeafSegment;
+import com.github.zhycn.id.factory.support.LeafSegmentAware;
 import com.github.zhycn.id.repository.LeafSegmentRepository;
 import com.github.zhycn.id.service.LeafSegmentID;
 
 /**
+ * 基于美团 Leaf-segment 数据库方案的实现工厂
+ * 
  * @author qizhaohong@lakala.com
  * @since 2.2.0 2018-06-08
  */
 public class LeafSegmentFactory implements LeafSegmentID {
 
+  private static Logger logger = LoggerFactory.getLogger(LeafSegmentFactory.class);
   private static final String REGEXP = "^[a-zA-Z0-9_-]{3,64}$";
   private static ReentrantLock lock = new ReentrantLock();
-  private static ConcurrentMap<String, LeafSegmentService> bizTagMap = new ConcurrentHashMap<>();
+  private static ConcurrentMap<String, LeafSegmentPostProccessor> bizTagMap =
+      new ConcurrentHashMap<>();
   private LeafSegmentRepository repository;
   private boolean asynLoading;
 
@@ -62,12 +66,12 @@ public class LeafSegmentFactory implements LeafSegmentID {
 
     try {
       lock.lock();
-      LeafSegmentService leafSegmentService = new DefaultLeafSegmentService(new LeafSegmentAware() {
+      LeafSegmentPostProccessor proccessor = new LeafSegmentPostProccessor(new LeafSegmentAware() {
 
         @Override
         public LeafSegment loadAndUpdate() {
           if (!repository.existsById(bizTag)) {
-            throw new IllegalArgumentException("bizTag[" + bizTag + "] not exists.");
+            throw new IllegalArgumentException("bizTag[" + bizTag + "] doesn't exists.");
           }
           LeafSegmentEntity entity = repository.findById(bizTag).get();
           final LeafSegment currentSegment = new LeafSegment(entity.getMaxId(), entity.getStep());
@@ -77,7 +81,7 @@ public class LeafSegmentFactory implements LeafSegmentID {
           return new LeafSegment(newMaxId, currentSegment.getStep());
         }
       }, asynLoading);
-      bizTagMap.putIfAbsent(bizTag, leafSegmentService);
+      bizTagMap.putIfAbsent(bizTag, proccessor);
     } finally {
       lock.unlock();
     }
@@ -114,6 +118,7 @@ public class LeafSegmentFactory implements LeafSegmentID {
       entity.setMaxId(startId);
       entity.setStep(step);
       repository.save(entity);
+      logger.info("Initial bizTag success: {}", entity.toString());
     }
   }
 

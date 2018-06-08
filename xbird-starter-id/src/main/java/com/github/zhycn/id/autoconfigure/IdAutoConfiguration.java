@@ -20,6 +20,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import com.github.zhycn.id.factory.LeafSegmentFactory;
 import com.github.zhycn.id.factory.LeafSnowflakeFactory;
@@ -33,8 +35,9 @@ import com.github.zhycn.id.service.LeafSnowflakeID;
  * @author zhycn
  * @since 2.2.0 2018-06-08
  */
+@Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
-@ConditionalOnBean(LeafJPAConfiguration.class)
+@ConditionalOnBean(LeafSegmentConfiguration.class)
 @EnableConfigurationProperties({LeafSegmentProperties.class, LeafSnowflakeProperties.class})
 public class IdAutoConfiguration {
 

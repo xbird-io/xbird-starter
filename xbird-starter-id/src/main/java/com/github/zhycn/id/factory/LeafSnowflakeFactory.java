@@ -19,6 +19,8 @@ import java.util.concurrent.locks.ReentrantLock;
 import com.github.zhycn.id.service.LeafSnowflakeID;
 
 /**
+ * 基于美团 Leaf-snowflake 方案的实现工厂
+ * 
  * @author qizhaohong@lakala.com
  * @since 2.2.0 2018-06-08
  */
@@ -101,7 +103,7 @@ public class LeafSnowflakeFactory implements LeafSnowflakeID {
       // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
       if (timestamp < lastTimestamp) {
         throw new RuntimeException(
-            String.format("Clock moved backwards.  Refusing to generate id for %d milliseconds",
+            String.format("Clock moved backwards. Refusing to generate id for %d milliseconds",
                 lastTimestamp - timestamp));
       }
 
@@ -110,7 +112,7 @@ public class LeafSnowflakeFactory implements LeafSnowflakeID {
         sequence = (sequence + 1) & sequenceMask;
         // 毫秒内序列溢出
         if (sequence == 0) {
-          // 阻塞到下一个毫秒,获得新的时间戳
+          // 阻塞到下一个毫秒，获得新的时间戳
           timestamp = tilNextMillis(lastTimestamp);
         }
       }

@@ -109,4 +109,11 @@ public class LeafSegmentEntity implements Serializable {
     this.lastModified = lastModified;
   }
 
+  @Override
+  public String toString() {
+    return "LeafSegmentEntity [bizTag=" + bizTag + ", maxId=" + maxId + ", step=" + step
+        + ", description=" + description + ", created=" + created + ", lastModified=" + lastModified
+        + "]";
+  }
+
 }
