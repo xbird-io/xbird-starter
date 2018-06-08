@@ -37,7 +37,7 @@ public abstract class SmsID {
    * @param count 指定长度
    * @return 指定长度短信验证码
    */
-  public static String random(final int count) {
+  public static String random(int count) {
     return RandomID.randomInt(count);
   }
 

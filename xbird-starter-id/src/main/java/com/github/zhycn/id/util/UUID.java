@@ -14,8 +14,6 @@
  */
 package com.github.zhycn.id.util;
 
-import org.springframework.lang.NonNull;
-
 /**
  * UUID Generator
  * 
@@ -39,7 +37,7 @@ public abstract class UUID {
    * @param name 指定字符
    * @return UUID字符串
    */
-  public static String random(@NonNull String name) {
+  public static String random(String name) {
     return java.util.UUID.nameUUIDFromBytes(name.getBytes()).toString();
   }
 
@@ -58,7 +56,7 @@ public abstract class UUID {
    * @param name 指定字符
    * @return UUID字符串
    */
-  public static String randomUpperCase(@NonNull String name) {
+  public static String randomUpperCase(String name) {
     return random(name).toUpperCase();
   }
 

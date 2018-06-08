@@ -27,7 +27,7 @@ public abstract class UrlShortenerID {
   /**
    * 默认用于生成短链的字符串
    */
-  private static final String ALPHABET =
+  private static String ALPHABET =
       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
   /**

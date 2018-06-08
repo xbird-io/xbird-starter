@@ -38,7 +38,7 @@ public abstract class RandomID {
      * not return the same value in the same millisecond.
      * </p>
      */
-    private static final Random RANDOM = new Random();
+    private static Random RANDOM = new Random();
 
     /**
      * <p>
@@ -54,7 +54,7 @@ public abstract class RandomID {
      * @return the random string
      * @throws IllegalArgumentException if {@code count} &lt; 0.
      */
-    public static String random(final int count, final char... chars) {
+    public static String random(int count, char... chars) {
       if (chars == null) {
         return random(count, 0, 0, false, false, null, RANDOM);
       }
@@ -97,8 +97,8 @@ public abstract class RandomID {
      *         empty.
      * @since 2.0
      */
-    public static String random(int count, int start, int end, final boolean letters,
-        final boolean numbers, final char[] chars, final Random random) {
+    public static String random(int count, int start, int end, boolean letters,
+        boolean numbers, char[] chars, Random random) {
       if (count == 0) {
         return "";
       } else if (count < 0) {
@@ -127,8 +127,8 @@ public abstract class RandomID {
         }
       }
 
-      final int zero_digit_ascii = 48;
-      final int first_letter_ascii = 65;
+      int zero_digit_ascii = 48;
+      int first_letter_ascii = 65;
 
       if (chars == null
           && (numbers && end <= zero_digit_ascii || letters && end <= first_letter_ascii)) {
@@ -138,7 +138,7 @@ public abstract class RandomID {
       }
 
       StringBuilder builder = new StringBuilder(count);
-      final int gap = end - start;
+      int gap = end - start;
 
       while (count-- != 0) {
         int codePoint;
@@ -157,7 +157,7 @@ public abstract class RandomID {
           codePoint = chars[random.nextInt(gap) + start];
         }
 
-        final int numberOfChars = Character.charCount(codePoint);
+        int numberOfChars = Character.charCount(codePoint);
         if (count == 0 && numberOfChars > 1) {
           count++;
           continue;
@@ -194,7 +194,7 @@ public abstract class RandomID {
      * @return the random string
      * @throws IllegalArgumentException if {@code count} &lt; 0 or the string is empty.
      */
-    public static String random(final int count, final String chars) {
+    public static String random(int count, String chars) {
       if (chars == null) {
         return random(count, 0, 0, false, false, null, RANDOM);
       }
@@ -203,10 +203,10 @@ public abstract class RandomID {
   }
   
   // 字符常量
-  private static final String NUMBERS = "1234567890";
-  private static final String LETTERS = "abcdefghijklmnopqrstuvwxyz";
-  private static final String LETTERS2 = LETTERS + LETTERS.toUpperCase();
-  private static final String ALL_CHARS = NUMBERS + LETTERS2;
+  private static String NUMBERS = "1234567890";
+  private static String LETTERS = "abcdefghijklmnopqrstuvwxyz";
+  private static String LETTERS2 = LETTERS + LETTERS.toUpperCase();
+  private static String ALL_CHARS = NUMBERS + LETTERS2;
 
   /**
    * 随机生成指定长度的字符串，由大小写字母（数字）组成
@@ -215,7 +215,7 @@ public abstract class RandomID {
    * @param numbers 是否包含数字
    * @return 随机字符串
    */
-  public static String random(final int count, boolean numbers) {
+  public static String random(int count, boolean numbers) {
     if (numbers) {
       return RandomStringUtils.random(count, ALL_CHARS);
     }
@@ -229,7 +229,7 @@ public abstract class RandomID {
    * @param chars 指定字符集
    * @return 随机字符串
    */
-  public static String random(final int count, final char... chars) {
+  public static String random(int count, char... chars) {
     return RandomStringUtils.random(count, chars);
   }
 
@@ -240,7 +240,7 @@ public abstract class RandomID {
    * @param chars 指定字符集
    * @return 随机字符串
    */
-  public static String random(final int count, final String chars) {
+  public static String random(int count, String chars) {
     return RandomStringUtils.random(count, chars);
   }
 
@@ -250,7 +250,7 @@ public abstract class RandomID {
    * @param count 指定长度
    * @return 随机字符串
    */
-  public static String randomInt(final int count) {
+  public static String randomInt(int count) {
     String numbers = RandomStringUtils.random(count, NUMBERS);
 
     if (numbers != null && numbers.startsWith("0")) {

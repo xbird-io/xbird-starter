@@ -14,14 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.zhycn.id.boot;
+package com.github.zhycn.id.factory;
 
 /**
  * @author qizhaohong@lakala.com
  * @since 2.2.0 2018-06-08
  */
-public interface LeafSegmentAware {
+public interface LeafSegmentID {
 
-  LeafSegment loadAndUpdate();
+  void init(String bizTag, long step);
+
+  void init(String bizTag, long startId, long step);
+
+  void init(String bizTag, long startId, long step, String desc);
+
+  Long getId(String bizTag);
+
+  Long getId(String bizTag, Long userId, Integer dbSize);
 
 }

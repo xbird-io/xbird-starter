@@ -1,22 +1,18 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+ * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work for additional information regarding
+ * copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
  */
 package com.github.zhycn.id.util;
-
-import org.springframework.lang.NonNull;
 
 /**
  * GUID Generator
@@ -41,7 +37,7 @@ public abstract class GUID {
    * @param name 指定字符
    * @return GUID字符串
    */
-  public static String random(@NonNull String name) {
+  public static String random(String name) {
     return UUID.random(name).replaceAll("-", "");
   }
 
@@ -60,8 +56,8 @@ public abstract class GUID {
    * @param name 指定字符
    * @return GUID字符串
    */
-  public static String randomUpperCase(@NonNull String name) {
+  public static String randomUpperCase(String name) {
     return random(name).toUpperCase();
   }
-  
+
 }
