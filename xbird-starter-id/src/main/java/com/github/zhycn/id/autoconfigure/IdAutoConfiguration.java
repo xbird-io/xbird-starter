@@ -16,15 +16,31 @@
  */
 package com.github.zhycn.id.autoconfigure;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.github.zhycn.id.factory.ILeafSegment;
+import com.github.zhycn.id.factory.LeafSegmentFactory;
+import com.github.zhycn.id.repository.LeafSegmentRepository;
+
 /**
- * Dubbo Auto-configuration
+ * ID Auto-configuration
  * 
  * @author zhycn
- * @since 2.0.0 2018-04-12
+ * @since 2.2.0 2018-06-08
  */
 @Configuration
+@ConditionalOnBean(LeafJPAConfiguration.class)
 public class IdAutoConfiguration {
 
+  @Autowired
+  private LeafSegmentRepository repository;
+
+  @Bean
+  public ILeafSegment createLeafSegmentFactory() {
+    return new LeafSegmentFactory(repository, false);
+  }
+  
 }
