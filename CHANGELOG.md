@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.2.0 
+
+- [新增] 添加分布式ID解决方案模块 `xbird-starter-id`。
+
 ### 2.1.0 2018-04-18
 
 - [新增] 集成JBoss开源的RESTEasy框架模块 `xbird-starter-resteasy`。
