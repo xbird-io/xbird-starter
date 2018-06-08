@@ -16,6 +16,8 @@ package com.github.zhycn.id.factory;
 
 import java.util.concurrent.locks.ReentrantLock;
 
+import com.github.zhycn.id.service.LeafSnowflakeID;
+
 /**
  * @author qizhaohong@lakala.com
  * @since 2.2.0 2018-06-08

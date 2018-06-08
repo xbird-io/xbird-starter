@@ -27,6 +27,7 @@ import com.github.zhycn.id.boot.LeafSegmentAware;
 import com.github.zhycn.id.boot.LeafSegmentService;
 import com.github.zhycn.id.domain.LeafSegmentEntity;
 import com.github.zhycn.id.repository.LeafSegmentRepository;
+import com.github.zhycn.id.service.LeafSegmentID;
 
 /**
  * @author qizhaohong@lakala.com
@@ -85,7 +86,7 @@ public class LeafSegmentFactory implements LeafSegmentID {
   }
 
   @Override
-  public Long getId(String bizTag, Long userId, Integer dbSize) {
+  public Long getId(String bizTag, long userId, int dbSize) {
     Long prefixOrderId = this.getId(bizTag);
     int leftMoveBit = this.leftMoveBit(dbSize);
     Long lastOrderId = ((prefixOrderId << leftMoveBit) | (userId % dbSize)); // 加入userId基因

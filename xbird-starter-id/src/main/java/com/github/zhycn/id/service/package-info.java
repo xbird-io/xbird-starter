@@ -4,4 +4,4 @@
  */
 @org.springframework.lang.NonNullApi
 @org.springframework.lang.NonNullFields
-package com.github.zhycn.id.util;
+package com.github.zhycn.id.service;

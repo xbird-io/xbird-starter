@@ -21,11 +21,11 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.zhycn.id.factory.LeafSegmentID;
-import com.github.zhycn.id.factory.LeafSnowflakeFactory;
-import com.github.zhycn.id.factory.LeafSnowflakeID;
 import com.github.zhycn.id.factory.LeafSegmentFactory;
+import com.github.zhycn.id.factory.LeafSnowflakeFactory;
 import com.github.zhycn.id.repository.LeafSegmentRepository;
+import com.github.zhycn.id.service.LeafSegmentID;
+import com.github.zhycn.id.service.LeafSnowflakeID;
 
 /**
  * ID Auto-configuration

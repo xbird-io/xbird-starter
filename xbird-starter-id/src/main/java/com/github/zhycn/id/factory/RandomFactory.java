@@ -1,35 +1,91 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
- * agreements. See the NOTICE file distributed with this work for additional information regarding
- * copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance with the License. You may obtain a
- * copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- */
-package com.github.zhycn.id.util;
+package com.github.zhycn.id.factory;
 
 import java.util.Random;
 
-/**
- * Random ID Generator
- * 
- * @author zhycn
- * @since 2.2.0 2018-04-18
- */
-public abstract class RandomID {
+import com.github.zhycn.id.service.RandomID;
 
-  /**
-   * 随机字符串生成工具类
-   * 
-   * @author zhycn
-   * @since 2.2.0 2018-04-20
-   */
+/**
+ * 随机生成字符串实现工厂
+ * 
+ * @author qizhaohong@lakala.com
+ * @since 2.2.0 2018-06-08
+ */
+public class RandomFactory implements RandomID {
+
+  // 字符常量
+  private static String NUMBERS = "1234567890";
+  private static String LETTERS = "abcdefghijklmnopqrstuvwxyz";
+  private static String LETTERS2 = LETTERS + LETTERS.toUpperCase();
+  private static String ALL_CHARS = NUMBERS + LETTERS2;
+
+  @Override
+  public String uuid() {
+    return java.util.UUID.randomUUID().toString();
+  }
+
+  @Override
+  public String uuid(String name) {
+    return java.util.UUID.nameUUIDFromBytes(name.getBytes()).toString();
+  }
+
+  @Override
+  public String uuidUpperCase() {
+    return uuid().toUpperCase();
+  }
+
+  @Override
+  public String uuidUpperCase(String name) {
+    return uuid(name).toUpperCase();
+  }
+
+  @Override
+  public String guid() {
+    return uuid().replaceAll("-", "");
+  }
+
+  @Override
+  public String guid(String name) {
+    return uuid(name).replaceAll("-", "");
+  }
+
+  @Override
+  public String guidUpperCase() {
+    return guid().toUpperCase();
+  }
+
+  @Override
+  public String guidUpperCase(String name) {
+    return guid(name).toUpperCase();
+  }
+
+  @Override
+  public String random(int count) {
+    return random(count, false);
+  }
+
+  @Override
+  public String random(int count, boolean onlyNumbers) {
+    if (onlyNumbers) {
+      String numbers = RandomStringUtils.random(count, NUMBERS);
+      if (numbers != null && numbers.startsWith("0")) {
+        String startNo = RandomStringUtils.random(1, "123456789");
+        numbers = numbers.replaceFirst("0", startNo);
+      }
+      return numbers;
+    }
+    return RandomStringUtils.random(count, ALL_CHARS);
+  }
+
+  @Override
+  public String random(int count, char... chars) {
+    return RandomStringUtils.random(count, chars);
+  }
+
+  @Override
+  public String random(int count, String chars) {
+    return RandomStringUtils.random(count, chars);
+  }
+
   private static class RandomStringUtils {
 
     /**
@@ -97,8 +153,8 @@ public abstract class RandomID {
      *         empty.
      * @since 2.0
      */
-    public static String random(int count, int start, int end, boolean letters,
-        boolean numbers, char[] chars, Random random) {
+    public static String random(int count, int start, int end, boolean letters, boolean numbers,
+        char[] chars, Random random) {
       if (count == 0) {
         return "";
       } else if (count < 0) {
@@ -200,65 +256,6 @@ public abstract class RandomID {
       }
       return random(count, chars.toCharArray());
     }
-  }
-  
-  // 字符常量
-  private static String NUMBERS = "1234567890";
-  private static String LETTERS = "abcdefghijklmnopqrstuvwxyz";
-  private static String LETTERS2 = LETTERS + LETTERS.toUpperCase();
-  private static String ALL_CHARS = NUMBERS + LETTERS2;
-
-  /**
-   * 随机生成指定长度的字符串，由大小写字母（数字）组成
-   * 
-   * @param count 指定长度
-   * @param numbers 是否包含数字
-   * @return 随机字符串
-   */
-  public static String random(int count, boolean numbers) {
-    if (numbers) {
-      return RandomStringUtils.random(count, ALL_CHARS);
-    }
-    return RandomStringUtils.random(count, LETTERS2);
-  }
-
-  /**
-   * 自定义字符集生成指定长度的字符串
-   * 
-   * @param count 指定长度
-   * @param chars 指定字符集
-   * @return 随机字符串
-   */
-  public static String random(int count, char... chars) {
-    return RandomStringUtils.random(count, chars);
-  }
-
-  /**
-   * 自定义字符集生成指定长度的字符串
-   * 
-   * @param count 指定长度
-   * @param chars 指定字符集
-   * @return 随机字符串
-   */
-  public static String random(int count, String chars) {
-    return RandomStringUtils.random(count, chars);
-  }
-
-  /**
-   * 随机生成指定长度的字符串，由数字组成
-   * 
-   * @param count 指定长度
-   * @return 随机字符串
-   */
-  public static String randomInt(int count) {
-    String numbers = RandomStringUtils.random(count, NUMBERS);
-
-    if (numbers != null && numbers.startsWith("0")) {
-      String startNo = RandomStringUtils.random(1, "123456789");
-      numbers = numbers.replaceFirst("0", startNo);
-    }
-
-    return numbers;
   }
 
 }
