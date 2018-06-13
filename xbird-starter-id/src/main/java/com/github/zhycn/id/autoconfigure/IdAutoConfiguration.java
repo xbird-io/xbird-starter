@@ -31,7 +31,7 @@ import com.github.zhycn.id.service.UrlShortenerID;
  * @since 2.2.0 2018-06-08
  */
 @Configuration
-@Import({LeafSegmentConfiguration.class, LeafSnowflakeConfiguration.class})
+@Import({LeafSegmentConfiguration.class, SnowflakeConfiguration.class})
 public class IdAutoConfiguration {
 
   @Bean

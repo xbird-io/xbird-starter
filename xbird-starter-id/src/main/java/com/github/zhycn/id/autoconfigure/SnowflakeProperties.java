@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @since 2.2.0 2018-06-08
  */
 @ConfigurationProperties(prefix = "xbird.id.snowflake")
-public class LeafSnowflakeProperties {
+public class SnowflakeProperties {
 
   private boolean enabled;
 

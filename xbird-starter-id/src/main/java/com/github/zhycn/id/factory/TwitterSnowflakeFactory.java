@@ -1,3 +1,17 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work for additional information regarding
+ * copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
 package com.github.zhycn.id.factory;
 
 import java.util.Calendar;
@@ -6,21 +20,27 @@ import java.util.concurrent.locks.ReentrantLock;
 import com.github.zhycn.id.service.SnowflakeID;
 
 /**
- * 基于美团 Leaf-snowflake 方案的实现工厂
+ * 基于Twitter-snowflake 方案的实现工厂
  * 
  * @author qizhaohong@lakala.com
- * @since 2.2.0 2018-06-13
+ * @since 2.2.0 2018-06-08
  */
-public class LeafSnowflakeFactory implements SnowflakeID {
+public class TwitterSnowflakeFactory implements SnowflakeID {
 
   /** 开始时间戳 */
   private static final long EPOCH;
 
   /** 机器id所占的位数 */
-  private static final long WORKER_ID_BITS = 10L;
+  private static final long WORKER_ID_BITS = 5L;
 
-  /** 支持的最大机器id，结果是1023 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数) */
+  /** 数据标识id所占的位数 */
+  private static final long DATACENETER_ID_BITS = 5L;
+
+  /** 支持的最大机器id，结果是31 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数) */
   private static final long MAX_WORKER_ID = -1L ^ (-1L << WORKER_ID_BITS);
+
+  /** 支持的最大数据标识id，结果是31 */
+  private static final long MAX_DATACENTER_ID = -1L ^ (-1L << DATACENETER_ID_BITS);
 
   /** 序列在id中占的位数 */
   private static final long SEQUENCE_BITS = 12L;
@@ -28,14 +48,21 @@ public class LeafSnowflakeFactory implements SnowflakeID {
   /** 机器ID向左移12位 */
   private static final long WORKER_ID_SHIFT_BITS = SEQUENCE_BITS;
 
-  /** 时间截向左移22位(10+12) */
-  private static final long TIMESTAMP_LEFT_SHIFT_BITS = SEQUENCE_BITS + WORKER_ID_BITS;
+  /** 数据标识id向左移17位(12+5) */
+  private static final long DATACENTER_ID_SHIFT_BITS = SEQUENCE_BITS + WORKER_ID_BITS;
+
+  /** 时间截向左移22位(5+5+12) */
+  private static final long TIMESTAMP_LEFT_SHIFT_BITS =
+      SEQUENCE_BITS + WORKER_ID_BITS + DATACENETER_ID_BITS;
 
   /** 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095) */
   private static final long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS);
 
-  /** 工作机器ID(0~1023) */
+  /** 工作机器ID(0~31) */
   private long workerId;
+
+  /** 数据中心ID(0~31) */
+  private long datacenterId;
 
   /** 毫秒内序列(0~4095) */
   private long sequence = 0L;
@@ -58,14 +85,20 @@ public class LeafSnowflakeFactory implements SnowflakeID {
   /**
    * 构造函数
    * 
-   * @param workerId 工作ID (0~1023)
+   * @param workerId 工作ID (0~31)
+   * @param datacenterId 数据中心ID (0~31)
    */
-  public LeafSnowflakeFactory(long workerId) {
+  public TwitterSnowflakeFactory(long workerId, long datacenterId) {
     if (workerId > MAX_WORKER_ID || workerId < 0) {
       throw new IllegalArgumentException(
           String.format("WorkerId can't be greater than %d or less than 0", MAX_WORKER_ID));
     }
+    if (datacenterId > MAX_DATACENTER_ID || datacenterId < 0) {
+      throw new IllegalArgumentException(
+          String.format("DatacenterId can't be greater than %d or less than 0", MAX_DATACENTER_ID));
+    }
     this.workerId = workerId;
+    this.datacenterId = datacenterId;
   }
 
   /**
@@ -98,7 +131,8 @@ public class LeafSnowflakeFactory implements SnowflakeID {
       // 上次生成ID的时间截
       lastTimestamp = timestamp;
       // 移位并通过或运算拼到一起组成64位的ID
-      return ((timestamp - EPOCH) << TIMESTAMP_LEFT_SHIFT_BITS) | (workerId << WORKER_ID_SHIFT_BITS)
+      return ((timestamp - EPOCH) << TIMESTAMP_LEFT_SHIFT_BITS)
+          | (datacenterId << DATACENTER_ID_SHIFT_BITS) | (workerId << WORKER_ID_SHIFT_BITS)
           | sequence;
     } finally {
       lock.unlock();
