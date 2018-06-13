@@ -14,12 +14,22 @@
  */
 package com.github.zhycn.id.autoconfigure;
 
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.AdviceMode;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.github.zhycn.id.factory.LeafSegmentFactory;
+import com.github.zhycn.id.repository.LeafSegmentRepository;
+import com.github.zhycn.id.service.LeafSegmentID;
 
 /**
  * ID JPA Configuration
@@ -28,10 +38,33 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @since 2.2.0 2018-06-08
  */
 @Configuration
-@EnableJpaAuditing
+@ConditionalOnProperty(name = "xbird.id.segment.enabled", havingValue = "true", matchIfMissing = false)
+@EnableConfigurationProperties(LeafSegmentProperties.class)
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ, proxyTargetClass = true)
 @EnableJpaRepositories({"com.github.zhycn.id.repository"})
 @EntityScan("com.github.zhycn.id.domain")
-public class LeafSegmentConfiguration {
+@EnableJpaAuditing
+public class LeafSegmentConfiguration implements InitializingBean {
+
+  @Autowired
+  private LeafSegmentProperties leafSegmentProperties;
+
+  @Autowired
+  private LeafSegmentRepository repository;
+
+  @Bean
+  @ConditionalOnMissingBean
+  public LeafSegmentID createLeafSegmentFactory() {
+    boolean asynLoading = leafSegmentProperties.getAsynLoading();
+    return new LeafSegmentFactory(repository, asynLoading);
+  }
+
+  @Override
+  public void afterPropertiesSet() throws Exception {
+    leafSegmentProperties.getEndpoints().forEach((k, v) -> {
+      createLeafSegmentFactory().init(v.getBizTag(), v.getStartId(), v.getStep(),
+          v.getDescription());
+    });
+  }
 
 }

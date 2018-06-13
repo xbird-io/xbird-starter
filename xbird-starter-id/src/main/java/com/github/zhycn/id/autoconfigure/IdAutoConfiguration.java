@@ -14,20 +14,15 @@
  */
 package com.github.zhycn.id.autoconfigure;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
+import org.springframework.context.annotation.Import;
 
-import com.github.zhycn.id.factory.LeafSegmentFactory;
-import com.github.zhycn.id.factory.LeafSnowflakeFactory;
-import com.github.zhycn.id.repository.LeafSegmentRepository;
-import com.github.zhycn.id.service.LeafSegmentID;
-import com.github.zhycn.id.service.LeafSnowflakeID;
+import com.github.zhycn.id.factory.RandomFactory;
+import com.github.zhycn.id.factory.UrlShortenerFactory;
+import com.github.zhycn.id.service.RandomID;
+import com.github.zhycn.id.service.UrlShortenerID;
 
 /**
  * ID Auto-configuration
@@ -35,34 +30,20 @@ import com.github.zhycn.id.service.LeafSnowflakeID;
  * @author zhycn
  * @since 2.2.0 2018-06-08
  */
-@Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
-@ConditionalOnBean(LeafSegmentConfiguration.class)
-@EnableConfigurationProperties({LeafSegmentProperties.class, LeafSnowflakeProperties.class})
+@Import({LeafSegmentConfiguration.class, LeafSnowflakeConfiguration.class})
 public class IdAutoConfiguration {
-
-  @Autowired
-  private LeafSegmentProperties leafSegmentProperties;
-
-  @Autowired
-  private LeafSnowflakeProperties leafSnowflakeProperties;
-
-  @Autowired
-  private LeafSegmentRepository repository;
 
   @Bean
   @ConditionalOnMissingBean
-  public LeafSegmentID createLeafSegmentFactory() {
-    boolean asynLoading = leafSegmentProperties.getAsynLoading();
-    return new LeafSegmentFactory(repository, asynLoading);
+  public RandomID createRandomFactory() {
+    return new RandomFactory();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public LeafSnowflakeID createLeafSnowflakeFactory() {
-    int workerId = leafSnowflakeProperties.getWorkerId();
-    int dataCenterId = leafSnowflakeProperties.getDataCenterId();
-    return new LeafSnowflakeFactory(workerId, dataCenterId);
+  public UrlShortenerID createUrlShortenerFactory() {
+    return new UrlShortenerFactory();
   }
 
 }

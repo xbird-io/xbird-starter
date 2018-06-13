@@ -35,8 +35,7 @@ public class UrlShortenerFactory implements UrlShortenerID {
     return create(url, secret, length, ALPHABET.toCharArray());
   }
 
-  @Override
-  public String[] create(String url, String secret, int length, char[] chars) {
+  private String[] create(String url, String secret, int length, char[] chars) {
     if (length > 8 || length < 1) {
       throw new IllegalArgumentException(String.format("Length must be between %d and %d.", 1, 8));
     }

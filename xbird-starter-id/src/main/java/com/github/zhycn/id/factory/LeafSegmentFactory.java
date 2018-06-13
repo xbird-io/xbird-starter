@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 
 import com.github.zhycn.id.domain.LeafSegmentEntity;
 import com.github.zhycn.id.factory.support.LeafSegmentPostProccessor;
@@ -99,7 +100,7 @@ public class LeafSegmentFactory implements LeafSegmentID {
 
   @Override
   public void init(String bizTag, long step) {
-    this.init(bizTag, 0, step);
+    this.init(bizTag, 1, step);
   }
 
   @Override
@@ -109,6 +110,8 @@ public class LeafSegmentFactory implements LeafSegmentID {
 
   @Override
   public void init(String bizTag, long startId, long step, String desc) {
+    Assert.isTrue(startId > 0, "StartId must be gt 0.");
+    Assert.isTrue(startId > 0, "Step must be gt 0.");
     this.check(bizTag);
 
     if (!repository.existsById(bizTag)) {
