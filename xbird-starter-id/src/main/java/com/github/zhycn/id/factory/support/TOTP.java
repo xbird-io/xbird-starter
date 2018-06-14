@@ -5,21 +5,25 @@ import java.util.List;
 public class TOTP {
 
   private String secretKey;
-  private int code;
+  private String code;
   private List<Integer> scratchCodes;
   private long timestamp;
 
   public TOTP() {}
 
-  public TOTP(String secretKey, int code, List<Integer> scratchCodes, long timestamp) {
+  public TOTP(String secretKey, String code, List<Integer> scratchCodes, long timestamp) {
     this.secretKey = secretKey;
     this.code = code;
     this.scratchCodes = scratchCodes;
     this.timestamp = timestamp;
   }
 
-  public int getCode() {
+  public String getCode() {
     return code;
+  }
+  
+  public int getCodeAsInt() {
+    return Integer.parseInt(code);
   }
 
   public List<Integer> getScratchCodes() {
@@ -35,7 +39,7 @@ public class TOTP {
     return timestamp;
   }
 
-  public void setCode(int code) {
+  public void setCode(String code) {
     this.code = code;
   }
 

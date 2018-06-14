@@ -9,8 +9,8 @@ public interface IGoogleAuthenticator {
 
   GoogleAuthenticatorKey createCredentials();
 
-  int getTotpPassword(String secret);
+  String getTotpPassword(String secret);
 
-  int getTotpPassword(String secret, long time);
+  String getTotpPassword(String secret, long time);
 
 }

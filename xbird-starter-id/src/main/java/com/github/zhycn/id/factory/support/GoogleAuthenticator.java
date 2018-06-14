@@ -12,6 +12,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base32;
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.util.Assert;
 
 public final class GoogleAuthenticator implements IGoogleAuthenticator {
 
@@ -164,12 +165,13 @@ public final class GoogleAuthenticator implements IGoogleAuthenticator {
     return calculateCode(secretKey, 0);
   }
 
-  public int getTotpPassword(String secret) {
+  public String getTotpPassword(String secret) {
     return getTotpPassword(secret, new Date().getTime());
   }
 
-  public int getTotpPassword(String secret, long time) {
-    return calculateCode(decodeSecret(secret), getTimeWindowFromTime(time));
+  public String getTotpPassword(String secret, long time) {
+    int code = calculateCode(decodeSecret(secret), getTimeWindowFromTime(time));
+    return lpad(Integer.toString(code), config.getCodeDigits(), '0');
   }
 
   private String calculateSecretKey(byte[] secretKey) {
@@ -199,6 +201,14 @@ public final class GoogleAuthenticator implements IGoogleAuthenticator {
       return false;
     }
     return checkCode(secret, verificationCode, time, this.config.getWindowSize());
+  }
+
+  private static String lpad(String str, int length, char ch) {
+    Assert.notNull(str, "string must be not null.");
+    for (int i = str.length(); i < length; i++) {
+      str = ch + str;
+    }
+    return str;
   }
 
 }

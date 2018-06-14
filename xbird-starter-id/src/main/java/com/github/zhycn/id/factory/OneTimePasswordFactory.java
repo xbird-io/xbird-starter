@@ -27,7 +27,7 @@ public class OneTimePasswordFactory implements OneTimePasswordID {
   @Override
   public boolean authorize(TOTP totp) throws GoogleAuthenticatorException {
     Assert.notNull(totp, "TOTP must be not null.");
-    return authorize(totp.getSecretKey(), totp.getCode(), totp.getTimestamp());
+    return authorize(totp.getSecretKey(), totp.getCodeAsInt(), totp.getTimestamp());
   }
 
   @Override
@@ -38,7 +38,7 @@ public class OneTimePasswordFactory implements OneTimePasswordID {
   @Override
   public TOTP getTotpPassword(long timestamp) {
     GoogleAuthenticatorKey key = googleAuthenticator.createCredentials();
-    int code = googleAuthenticator.getTotpPassword(key.getKey(), timestamp);
+    String code = googleAuthenticator.getTotpPassword(key.getKey(), timestamp);
     return new TOTP(key.getKey(), code, key.getScratchCodes(), timestamp);
   }
 
