@@ -74,7 +74,7 @@ public class TwitterSnowflakeFactory implements SnowflakeID {
 
   static {
     Calendar calendar = Calendar.getInstance();
-    calendar.set(2018, Calendar.FEBRUARY, 1);
+    calendar.set(2016, Calendar.NOVEMBER, 1);
     calendar.set(Calendar.HOUR_OF_DAY, 0);
     calendar.set(Calendar.MINUTE, 0);
     calendar.set(Calendar.SECOND, 0);

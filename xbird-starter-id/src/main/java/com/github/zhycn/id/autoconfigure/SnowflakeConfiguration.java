@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.zhycn.id.factory.TwitterSnowflakeFactory;
+import com.github.zhycn.id.factory.LeafSnowflakeFactory;
 import com.github.zhycn.id.service.SnowflakeID;
 
 @Configuration
@@ -22,8 +22,7 @@ public class SnowflakeConfiguration {
   @ConditionalOnMissingBean
   public SnowflakeID createLeafSnowflakeFactory() {
     int workerId = leafSnowflakeProperties.getWorkerId();
-    int dataCenterId = leafSnowflakeProperties.getDataCenterId();
-    return new TwitterSnowflakeFactory(workerId, dataCenterId);
+    return new LeafSnowflakeFactory(workerId);
   }
 
 }
