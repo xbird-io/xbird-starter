@@ -19,8 +19,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import com.github.zhycn.id.factory.OneTimePasswordFactory;
 import com.github.zhycn.id.factory.RandomFactory;
 import com.github.zhycn.id.factory.UrlShortenerFactory;
+import com.github.zhycn.id.factory.support.GoogleAuthenticator;
+import com.github.zhycn.id.service.OneTimePasswordID;
 import com.github.zhycn.id.service.RandomID;
 import com.github.zhycn.id.service.UrlShortenerID;
 
@@ -44,6 +47,12 @@ public class IdAutoConfiguration {
   @ConditionalOnMissingBean
   public UrlShortenerID createUrlShortenerFactory() {
     return new UrlShortenerFactory();
+  }
+
+  @Bean
+  @ConditionalOnMissingBean
+  public OneTimePasswordID createOneTimePasswordFactory() {
+    return new OneTimePasswordFactory(new GoogleAuthenticator());
   }
 
 }
