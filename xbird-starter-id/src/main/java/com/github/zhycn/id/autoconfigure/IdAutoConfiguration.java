@@ -16,17 +16,20 @@
  */
 package com.github.zhycn.id.autoconfigure;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
+import com.github.zhycn.id.factory.LeafSnowflakeFactory;
 import com.github.zhycn.id.factory.OneTimePasswordFactory;
 import com.github.zhycn.id.factory.RandomFactory;
 import com.github.zhycn.id.factory.UrlShortenerFactory;
 import com.github.zhycn.id.factory.support.GoogleAuthenticator;
 import com.github.zhycn.id.service.OneTimePasswordID;
 import com.github.zhycn.id.service.RandomID;
+import com.github.zhycn.id.service.SnowflakeID;
 import com.github.zhycn.id.service.UrlShortenerID;
 
 /**
@@ -36,9 +39,19 @@ import com.github.zhycn.id.service.UrlShortenerID;
  * @since 2.2.0 2018-06-08
  */
 @Configuration
-@Import({LeafSegmentConfiguration.class, SnowflakeConfiguration.class})
+@EnableConfigurationProperties(SnowflakeProperties.class)
 public class IdAutoConfiguration {
 
+  @Autowired
+  private SnowflakeProperties leafSnowflakeProperties;
+
+  @Bean
+  @ConditionalOnMissingBean
+  public SnowflakeID createLeafSnowflakeFactory() {
+    int workerId = leafSnowflakeProperties.getWorkerId();
+    return new LeafSnowflakeFactory(workerId);
+  }
+  
   @Bean
   @ConditionalOnMissingBean
   public RandomID createRandomFactory() {

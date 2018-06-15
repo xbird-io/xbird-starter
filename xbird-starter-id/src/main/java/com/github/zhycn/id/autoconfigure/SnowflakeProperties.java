@@ -27,8 +27,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "xbird.id.snowflake")
 public class SnowflakeProperties {
 
-  private boolean enabled;
-
   /**
    * workerId: 0~31
    */
@@ -47,16 +45,8 @@ public class SnowflakeProperties {
     return workerId;
   }
 
-  public boolean isEnabled() {
-    return enabled;
-  }
-
   public void setDataCenterId(Integer dataCenterId) {
     this.dataCenterId = dataCenterId;
-  }
-
-  public void setEnabled(boolean enabled) {
-    this.enabled = enabled;
   }
 
   public void setWorkerId(Integer workerId) {

@@ -41,15 +41,15 @@ public class OneTimePasswordFactory implements OneTimePasswordID {
   }
 
   @Override
-  public boolean authorize(String secretKey, int code, long timestamp)
+  public boolean authorize(String secret, int code, long timestamp)
       throws GoogleAuthenticatorException {
-    return googleAuthenticator.authorize(secretKey, code, timestamp);
+    return googleAuthenticator.authorize(secret, code, timestamp);
   }
 
   @Override
   public boolean authorize(TOTP totp) throws GoogleAuthenticatorException {
     Assert.notNull(totp, "TOTP must be not null.");
-    return authorize(totp.getSecretKey(), totp.getCodeAsInt(), totp.getTimestamp());
+    return authorize(totp.getSecret(), totp.getCodeAsInt(), totp.getTimestamp());
   }
 
   @Override

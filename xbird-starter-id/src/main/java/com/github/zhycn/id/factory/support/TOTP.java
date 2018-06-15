@@ -24,15 +24,15 @@ import java.util.List;
  */
 public class TOTP {
 
-  private String secretKey;
+  private String secret;
   private String code;
   private List<Integer> scratchCodes;
   private long timestamp;
 
   public TOTP() {}
 
-  public TOTP(String secretKey, String code, List<Integer> scratchCodes, long timestamp) {
-    this.secretKey = secretKey;
+  public TOTP(String secret, String code, List<Integer> scratchCodes, long timestamp) {
+    this.secret = secret;
     this.code = code;
     this.scratchCodes = scratchCodes;
     this.timestamp = timestamp;
@@ -50,10 +50,9 @@ public class TOTP {
     return scratchCodes;
   }
 
-  public String getSecretKey() {
-    return secretKey;
+  public String getSecret() {
+    return secret;
   }
-
 
   public long getTimestamp() {
     return timestamp;
@@ -67,8 +66,8 @@ public class TOTP {
     this.scratchCodes = scratchCodes;
   }
 
-  public void setSecretKey(String secretKey) {
-    this.secretKey = secretKey;
+  public void setSecret(String secret) {
+    this.secret = secret;
   }
 
   public void setTimestamp(long timestamp) {
@@ -77,7 +76,7 @@ public class TOTP {
 
   @Override
   public String toString() {
-    return "TOTP [secretKey=" + secretKey + ", code=" + code + ", scratchCodes=" + scratchCodes
+    return "TOTP [secret=" + secret + ", code=" + code + ", scratchCodes=" + scratchCodes
         + ", timestamp=" + timestamp + "]";
   }
 

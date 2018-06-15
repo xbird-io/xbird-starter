@@ -14,12 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.zhycn.id.autoconfigure;
+package com.github.zhycn.id.boot;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.AdviceMode;
@@ -29,6 +28,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.github.zhycn.id.autoconfigure.LeafSegmentProperties;
 import com.github.zhycn.id.factory.LeafSegmentFactory;
 import com.github.zhycn.id.repository.LeafSegmentRepository;
 import com.github.zhycn.id.service.LeafSegmentID;
@@ -40,7 +40,6 @@ import com.github.zhycn.id.service.LeafSegmentID;
  * @since 2.2.0 2018-06-08
  */
 @Configuration
-@ConditionalOnProperty(name = "xbird.id.segment.enabled", havingValue = "true", matchIfMissing = false)
 @EnableConfigurationProperties(LeafSegmentProperties.class)
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ, proxyTargetClass = true)
 @EnableJpaRepositories({"com.github.zhycn.id.repository"})

@@ -27,12 +27,12 @@ import com.github.zhycn.id.factory.support.TOTP;
  */
 public interface OneTimePasswordID {
 
-  boolean authorize(String secretKey, int code, long timestamp) throws GoogleAuthenticatorException;
+  boolean authorize(String secret, int code, long timestamp) throws GoogleAuthenticatorException;
 
   boolean authorize(TOTP totp) throws GoogleAuthenticatorException;
 
   TOTP getTotpPassword();
 
-  TOTP getTotpPassword(long time);
+  TOTP getTotpPassword(long timestamp);
 
 }
