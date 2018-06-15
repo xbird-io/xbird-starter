@@ -43,12 +43,12 @@ import com.github.zhycn.id.service.UrlShortenerID;
 public class IdAutoConfiguration {
 
   @Autowired
-  private SnowflakeProperties leafSnowflakeProperties;
+  private SnowflakeProperties snowflakeProperties;
 
   @Bean
   @ConditionalOnMissingBean
   public SnowflakeID createLeafSnowflakeFactory() {
-    int workerId = leafSnowflakeProperties.getWorkerId();
+    int workerId = snowflakeProperties.getWorkerId();
     return new LeafSnowflakeFactory(workerId);
   }
   

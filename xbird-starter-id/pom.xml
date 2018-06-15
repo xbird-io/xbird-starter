@@ -6,7 +6,7 @@
 	<artifactId>xbird-starter-id</artifactId>
 	<packaging>jar</packaging>
 	<name>Xbird Starter ID</name>
-	<description>Solutions for Distributed ID Generator for Spring Boot.</description>
+	<description>A Distributed ID Generator for Spring Boot.</description>
 	<url>https://zhycn.github.io/xbird-starter/</url>
 
 	<licenses>
