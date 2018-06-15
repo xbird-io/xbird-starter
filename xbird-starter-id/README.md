@@ -233,12 +233,12 @@ public interface OneTimePasswordID {
 
 基于 Twitter-snowflake 方案的实现。
 
-该接口提供了两个实现类，分别是 LeafSnowflakeFactory 和 TwitterSnowflakeFactory。它们的区别是：后者接收两个参数 `workerId` 和 `dataCenterId`，而后者只接收一个参数 `workerId`。
+该接口提供了两个实现类，分别是 LeafSnowflakeFactory 和 TwitterSnowflakeFactory。它们的区别是：前者只接收一个参数 `workerId`，而后者接收两个参数 `workerId` 和 `dataCenterId`。
 
 ```
 # 通过属性文件配置参数
-xbird.id.snowflake.data-center-id=0
 xbird.id.snowflake.worker-id=0
+xbird.id.snowflake.data-center-id=0
 ```
 
 接口的默认配置是 LeafSnowflakeFactory ：
@@ -338,7 +338,29 @@ ENGINE=InnoDB
 ;
 ```
 
-以上是 MySQL 的数据库脚本，其他数据库则作相应的修改即可。配置完成后，即可在项目中使用：
+> 以上是 MySQL 的数据库脚本，其他数据库则作相应的修改即可。
+
+接下来，在项目中配置业务标签：
+
+```
+# 是否使用异步加载（默认值：True）
+xbird.id.segment.asyn-loading=true
+
+# 设置业务标签（支持设置多个业务标签）
+xbird.id.segment.endpoints.one.biz-tag=test
+xbird.id.segment.endpoints.one.start-id=1
+xbird.id.segment.endpoints.one.step=20
+xbird.id.segment.endpoints.one.description=Test Description
+
+# 业务标签二（startId 和 description 不是必须的）
+xbird.id.segment.endpoints.two.biz-tag=order_test
+xbird.id.segment.endpoints.two.step=20
+```
+
+- startId 默认值为 1。
+- description 默认值为 null。
+
+配置完成后，即可在项目中使用：
 
 ```
 // 在项目中使用（自动注入）

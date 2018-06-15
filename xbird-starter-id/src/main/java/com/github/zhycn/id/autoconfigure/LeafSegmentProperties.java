@@ -30,7 +30,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "xbird.id.segment")
 public class LeafSegmentProperties {
 
-  private boolean asynLoading;
+  private boolean asynLoading = true;
   private Map<String, LeafSegmentData> endpoints = new HashMap<>();
 
   public boolean getAsynLoading() {
