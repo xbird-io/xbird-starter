@@ -30,7 +30,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
- * @author qizhaohong@lakala.com
+ * Leaf-segment Entity
+ * 
+ * @author zhycn
  * @since 2.2.0 2018-06-08
  */
 @Entity

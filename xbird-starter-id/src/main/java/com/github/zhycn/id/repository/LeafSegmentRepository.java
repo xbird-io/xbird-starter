@@ -22,7 +22,7 @@ import org.springframework.stereotype.Repository;
 import com.github.zhycn.id.domain.LeafSegmentEntity;
 
 /**
- * @author qizhaohong@lakala.com
+ * @author zhycn
  * @since 2.2.0 2018-06-08
  */
 @Repository
