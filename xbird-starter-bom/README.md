@@ -88,7 +88,7 @@ mvn deploy
 <parent>
     <groupId>com.github.zhycn</groupId>
     <artifactId>xbird-starter-bom</artifactId>
-    <version>1.0.0</version>
+    <version>2.2.0</version>
     <relativePath />
 </parent>
 ```
@@ -101,7 +101,7 @@ mvn deploy
         <dependency>
             <groupId>com.github.zhycn</groupId>
             <artifactId>xbird-starter-bom</artifactId>
-            <version>1.0.0</version>
+            <version>2.2.0</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
