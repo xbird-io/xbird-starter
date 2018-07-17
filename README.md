@@ -28,7 +28,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
     <parent>
         <groupId>com.github.zhycn</groupId>
         <artifactId>xbird-starter</artifactId>
-        <version>2.2.0</version>
+        <version>2.3.0</version>
         <relativePath />
     </parent>
 
@@ -66,7 +66,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>xbird-starter</artifactId>
-                <version>2.2.0</version>
+                <version>2.3.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -93,7 +93,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 
 ```
 <properties>
-    <apache.commons-lang3.version>3.7</apache.commons-lang3.version>
+    <commons-lang3.version>3.7</commons-lang3.version>
 </properties>
 ```
 
@@ -105,12 +105,11 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 
 | Group | Artifact | Version | Website |
 |:---|:---|:---|:---:|
-| io.spring.platform | platform-bom | Cairo-RELEASE | [Official](http://platform.spring.io/platform/) | 
-| org.springframework.boot | spring-boot-starter-parent | 2.0.1.RELEASE | [Official](https://projects.spring.io/spring-boot/) | 
-| org.springframework.cloud | spring-cloud-dependencies | Edgware.SR3 |[Official](http://projects.spring.io/spring-cloud/) | 
-| org.apache.commons | commons-lang3 | 3.7 | [Official](http://commons.apache.org/proper/commons-lang/) | 
-| com.alibaba | fastjson | 1.2.44 | [GitHub](https://github.com/alibaba/fastjson) | 
-| com.alibaba | druid-spring-boot-starter | 1.1.9 | [GitHub](https://github.com/alibaba/druid) | 
+| io.spring.platform | platform-bom | Cairo-SR2 | [Official](http://platform.spring.io/platform/) | 
+| org.springframework.boot | spring-boot-starter-parent | 2.0.3.RELEASE | [Official](https://projects.spring.io/spring-boot/) | 
+| org.springframework.cloud | spring-cloud-dependencies | Finchley.RELEASE |[Official](http://projects.spring.io/spring-cloud/) | 
+| com.alibaba | fastjson | 1.2.47 | [GitHub](https://github.com/alibaba/fastjson) | 
+| com.alibaba | druid-spring-boot-starter | 1.1.10 | [GitHub](https://github.com/alibaba/druid) | 
 | io.springfox | springfox-swagger2 | 2.8.0 | [Official](https://springfox.github.io/springfox/) | 
 | io.springfox | springfox-swagger-ui | 2.8.0 | [Official](https://springfox.github.io/springfox/) | 
 | io.springfox | springfox-data-rest | 2.8.0 | [Official](https://springfox.github.io/springfox/) | 
@@ -129,8 +128,12 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 | com.squareup.retrofit2 | converter-protobuf | 2.3.0 | [Official](http://square.github.io/retrofit/) | 
 | com.squareup.retrofit2 | converter-simplexml | 2.3.0 | [Official](http://square.github.io/retrofit/) | 
 | com.squareup.retrofit2 | converter-wire | 2.3.0 | [Official](http://square.github.io/retrofit/) | 
-| cn.hutool | hutool-all | 4.0.9 | [Official](http://www.hutool.cn/) |
+| cn.hutool | hutool-all | 4.1.2 | [Official](http://www.hutool.cn/) |
 | com.alibaba.spring.boot | dubbo-spring-boot-starter | 2.0.0 | [Official](https://github.com/alibaba/dubbo-spring-boot-starter) |
 | org.apache.zookeeper | zookeeper | 3.4.11 | [Official](http://zookeeper.apache.org/) |
 | com.101tec | zkclient | 0.10 | [Official](https://github.com/sgroschupf/zkclient) |
 | javax.ws.rs | javax.ws.rs-api | 2.1 | [Official](https://github.com/jax-rs) |
+| de.codecentric | spring-boot-admin-starter-server | 2.0.1 | [Official](https://github.com/codecentric/spring-boot-admin) |
+| de.codecentric | spring-boot-admin-server-ui | 2.0.1 | [Official](https://github.com/codecentric/spring-boot-admin) |
+| de.codecentric | spring-boot-admin-starter-client | 2.0.1 | [Official](https://github.com/codecentric/spring-boot-admin) |
+| com.google.guava | guava | 25.1-jre | [Official](https://github.com/google/guava) |

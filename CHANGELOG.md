@@ -2,8 +2,17 @@
 
 ### 2.3.0
 
-- 添加IDEA代码规范：intellij-java-google-style.xml。
-- 添加统一日志规范：logback-spring.xml。
+- [新增] 添加IDEA代码规范：intellij-java-google-style.xml。
+- [新增] 添加统一日志规范：logback-spring.xml。
+- [新增] 添加 Spring Boot Admin 依赖。
+- [新增] 添加 Google Guava 依赖。
+- [升级] 更新 platform-bom 版本到 Cairo-SR2。
+- [升级] 更新 Spring Boot 版本到 2.0.3.RELEASE。
+- [升级] 更新 Spring Cloud 版本到 Finchley.RELEASE。
+- [升级] 更新 Fastjson 版本到 1.2.47。
+- [升级] 更新 Druid 版本到 1.1.10。
+- [升级] 更新 Hutool 版本到 4.1.2。
+- [删除] 移除commons-lang3，官方已经提供了最新版本。
 
 ### 2.2.0 2018-06-15
 
