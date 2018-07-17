@@ -1,5 +1,10 @@
 # Changelog
 
+### 2.3.0
+
+- 添加IDEA代码规范：intellij-java-google-style.xml。
+- 添加统一日志规范：logback-spring.xml。
+
 ### 2.2.0 2018-06-15
 
 - [新增] 添加分布式ID解决方案模块 `xbird-starter-id`。
