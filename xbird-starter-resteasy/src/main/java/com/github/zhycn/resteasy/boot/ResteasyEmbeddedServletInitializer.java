@@ -104,8 +104,10 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
     switch (registration) {
       case AUTO:
         findJaxrsApplicationBeans(beanFactory);
-        if (applications.size() == 0) findJaxrsApplicationProperty(beanFactory);
-        if (applications.size() == 0) findJaxrsApplicationScanning(beanFactory);
+        if (applications.size() == 0) {
+          findJaxrsApplicationProperty(beanFactory);
+          findJaxrsApplicationScanning(beanFactory);
+        }
         break;
       case BEANS:
         findJaxrsApplicationBeans(beanFactory);
@@ -272,6 +274,7 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
     }
   }
 
+  @Override
   public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
       throws BeansException {
     logger.debug("Post process bean factory has been called");

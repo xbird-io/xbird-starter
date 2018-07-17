@@ -20,7 +20,6 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import javax.crypto.Mac;
@@ -185,10 +184,12 @@ public final class GoogleAuthenticator implements IGoogleAuthenticator {
     return calculateCode(secretKey, 0);
   }
 
+  @Override
   public String getTotpPassword(String secret) {
-    return getTotpPassword(secret, new Date().getTime());
+    return getTotpPassword(secret, System.currentTimeMillis());
   }
 
+  @Override
   public String getTotpPassword(String secret, long time) {
     int code = calculateCode(decodeSecret(secret), getTimeWindowFromTime(time));
     return lpad(Integer.toString(code), config.getCodeDigits(), '0');
@@ -208,7 +209,7 @@ public final class GoogleAuthenticator implements IGoogleAuthenticator {
   @Override
   public boolean authorize(String secret, int verificationCode)
       throws GoogleAuthenticatorException {
-    return authorize(secret, verificationCode, new Date().getTime());
+    return authorize(secret, verificationCode, System.currentTimeMillis());
   }
 
   @Override

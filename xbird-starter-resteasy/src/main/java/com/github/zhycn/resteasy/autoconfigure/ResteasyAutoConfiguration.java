@@ -84,6 +84,7 @@ public class ResteasyAutoConfiguration {
 
       protected ResteasyDeployment deployment;
 
+      @Override
       public void contextInitialized(ServletContextEvent sce) {
         ServletContext servletContext = sce.getServletContext();
 
@@ -116,6 +117,7 @@ public class ResteasyAutoConfiguration {
         servletContext.setAttribute(Registry.class.getName(), deployment.getRegistry());
       }
 
+      @Override
       public void contextDestroyed(ServletContextEvent sce) {
         if (deployment != null) {
           deployment.stop();

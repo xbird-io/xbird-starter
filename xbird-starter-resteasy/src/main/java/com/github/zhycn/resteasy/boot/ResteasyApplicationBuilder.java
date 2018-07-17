@@ -67,14 +67,18 @@ public class ResteasyApplicationBuilder {
 
     if (path != null) {
       String mapping = path;
-      if (!mapping.startsWith("/")) mapping = "/" + mapping;
+      if (!mapping.startsWith("/")) {
+        mapping = "/" + mapping;
+      }
       String prefix = mapping;
-      if (!"/".equals(prefix) && prefix.endsWith("/"))
+      if (!"/".equals(prefix) && prefix.endsWith("/")) {
         prefix = prefix.substring(0, prefix.length() - 1);
-      if (mapping.endsWith("/"))
+      }
+      if (mapping.endsWith("/")) {
         mapping += "*";
-      else
+      } else {
         mapping += "/*";
+      }
       // resteasy.servlet.mapping.prefix
       servletRegistrationBean.addInitParameter("resteasy.servlet.mapping.prefix", prefix);
       servletRegistrationBean.addUrlMappings(mapping);

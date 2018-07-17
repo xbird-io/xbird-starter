@@ -1,6 +1,6 @@
 # Changelog
 
-### 2.3.0
+### 2.3.0 2018-07-17
 
 - [新增] 添加IDEA代码规范：intellij-java-google-style.xml。
 - [新增] 添加统一日志规范：logback-spring.xml。

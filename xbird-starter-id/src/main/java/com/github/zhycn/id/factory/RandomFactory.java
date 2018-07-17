@@ -199,14 +199,14 @@ public class RandomFactory implements RandomID {
         }
       }
 
-      int zero_digit_ascii = 48;
-      int first_letter_ascii = 65;
+      int zeroDigitAscii = 48;
+      int firstLetterAscii = 65;
 
       if (chars == null
-          && (numbers && end <= zero_digit_ascii || letters && end <= first_letter_ascii)) {
+          && (numbers && end <= zeroDigitAscii || letters && end <= firstLetterAscii)) {
         throw new IllegalArgumentException("Parameter end (" + end + ") must be greater then ("
-            + zero_digit_ascii + ") for generating digits " + "or greater then ("
-            + first_letter_ascii + ") for generating letters.");
+            + zeroDigitAscii + ") for generating digits " + "or greater then ("
+            + firstLetterAscii + ") for generating letters.");
       }
 
       StringBuilder builder = new StringBuilder(count);

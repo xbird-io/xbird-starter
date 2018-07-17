@@ -16,8 +16,6 @@
  */
 package com.github.zhycn.id.factory;
 
-import java.util.Date;
-
 import org.springframework.util.Assert;
 
 import com.github.zhycn.id.factory.support.GoogleAuthenticatorException;
@@ -54,7 +52,7 @@ public class OneTimePasswordFactory implements OneTimePasswordID {
 
   @Override
   public TOTP getTotpPassword() {
-    return getTotpPassword(new Date().getTime());
+    return getTotpPassword(System.currentTimeMillis());
   }
 
   @Override
