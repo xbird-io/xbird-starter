@@ -36,12 +36,11 @@
 	<parent>
 		<groupId>io.spring.platform</groupId>
 		<artifactId>platform-bom</artifactId>
-		<version>Cairo-SR2</version>
+		<version>Cairo-SR3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<modules>
-		<!-- <module>xbird-starter-bom</module> -->
 		<module>xbird-starter-dubbo</module>
 		<module>xbird-starter-id</module>
 		<module>xbird-starter-swagger2</module>

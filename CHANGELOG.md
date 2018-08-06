@@ -1,5 +1,10 @@
 # Changelog
 
+### Better.SR1 2018-08-06
+
+- [升级] 更新 Spring IO Platform 版本到 Cairo-SR3。
+- [删除] 移除 xbrid-starter-bom 项目。
+
 ### 2.3.0 2018-07-17
 
 - [新增] 添加IDEA代码规范：intellij-java-google-style.xml。
