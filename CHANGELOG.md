@@ -1,7 +1,8 @@
 # Changelog
 
-### Better.SR1 2018-08-06
+### vBetter.SR1 2018-08-06
 
+- [升级] 项目版本号更新为 Better.SR1。
 - [升级] 更新 Spring IO Platform 版本到 Cairo-SR3。
 - [删除] 移除 xbrid-starter-bom 项目。
 
