@@ -31,12 +31,9 @@ import springfox.documentation.service.Contact;
 @ConfigurationProperties(prefix = "xbird.swagger2")
 public class Swagger2Properties {
   
-  // 扫描基础包
-  private String basePackage;
-  
   // 设置API信息
-  private String title = "Api Documentation";
-  private String description = "Api Documentation";
+  private String title = "API Documentation";
+  private String description = "The Best APIs are Built with Swagger Tools";
   private String termsOfServiceUrl;
   private ContactWrapper contact = new ContactWrapper();
   private String license;
@@ -56,10 +53,6 @@ public class Swagger2Properties {
         .license(license)
         .licenseUrl(licenseUrl)
         .build();
-  }
-
-  public String getBasePackage() {
-    return basePackage;
   }
 
   public ContactWrapper getContact() {
@@ -88,10 +81,6 @@ public class Swagger2Properties {
 
   public String getVersion() {
     return version;
-  }
-
-  public void setBasePackage(String basePackage) {
-    this.basePackage = basePackage;
   }
 
   public void setContact(ContactWrapper contact) {

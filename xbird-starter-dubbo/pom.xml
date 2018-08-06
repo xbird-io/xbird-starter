@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>xbird-starter-dubbo</artifactId>
-	<name>Xbird Starter Dubbo</name>
-	<description>Integrating the Dubbo for Spring Boot.</description>
-	<url>https://zhycn.github.io/xbird-starter/</url>
+	<name>Dubbo</name>
+	<description>A high-performance, java based open source RPC framework.</description>
+	<url>http://dubbo.apache.org/</url>
 
 	<parent>
 		<groupId>com.github.zhycn</groupId>

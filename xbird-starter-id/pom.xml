@@ -4,9 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>xbird-starter-id</artifactId>
-	<name>Xbird Starter ID</name>
+	<name>Distributed ID</name>
 	<description>A Distributed ID Generator for Spring Boot.</description>
-	<url>https://zhycn.github.io/xbird-starter/</url>
 
 	<parent>
 		<groupId>com.github.zhycn</groupId>
