@@ -38,7 +38,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name = "leaf_segment")
 @EntityListeners(AuditingEntityListener.class)
-public class LeafSegmentEntity implements Serializable {
+public class SegmentEntity implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -113,7 +113,7 @@ public class LeafSegmentEntity implements Serializable {
 
   @Override
   public String toString() {
-    return "LeafSegmentEntity [bizTag=" + bizTag + ", maxId=" + maxId + ", step=" + step
+    return "SegmentEntity [bizTag=" + bizTag + ", maxId=" + maxId + ", step=" + step
         + ", description=" + description + ", created=" + created + ", lastModified=" + lastModified
         + "]";
   }

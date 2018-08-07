@@ -32,22 +32,22 @@ import org.slf4j.LoggerFactory;
  * @author zhycn
  * @since 2.2.0 2018-06-08
  */
-public class LeafSegmentPostProccessor {
+public class SegmentPostProccessor {
 
-  private static Logger logger = LoggerFactory.getLogger(LeafSegmentPostProccessor.class);
+  private static Logger logger = LoggerFactory.getLogger(SegmentPostProccessor.class);
   private static ReentrantLock lock = new ReentrantLock();
   private static ExecutorService taskExecutor = Executors.newSingleThreadExecutor();
-  private volatile LeafSegment[] segments = new LeafSegment[2]; // 采用双buffer
-  private LeafSegmentAware leafSegmentAware; // 外部注入数据
+  private volatile Segment[] segments = new Segment[2]; // 采用双buffer
+  private SegmentAware segmentAware; // 外部注入数据
   private boolean asynLoading; // 是否为异步加载buffer
   private AtomicLong currentId; // 当前ID值
   private volatile boolean sw; // 控制开关，切换buffer
 
-  public LeafSegmentPostProccessor(LeafSegmentAware leafSegmentAware, boolean asynLoading) {
+  public SegmentPostProccessor(SegmentAware segmentAware, boolean asynLoading) {
     this.sw = false;
     this.asynLoading = asynLoading;
-    this.leafSegmentAware = leafSegmentAware;
-    this.segments[index()] = leafSegmentAware.loadAndUpdate();
+    this.segmentAware = segmentAware;
+    this.segments[index()] = segmentAware.loadAndUpdate();
     this.currentId = new AtomicLong(segments[index()].getMinId());
     logger.debug("Leaf-segment init load segment[0]: {}", segments[index()].toString());
     logger.debug("Leaf-segment asynLoading: {}", asynLoading);
@@ -70,7 +70,7 @@ public class LeafSegmentPostProccessor {
 
             @Override
             public Boolean call() throws Exception {
-              segments[reIndex()] = leafSegmentAware.loadAndUpdate();
+              segments[reIndex()] = segmentAware.loadAndUpdate();
               logger.debug("Leaf-segment asyn load segment[{}]: {}", reIndex(),
                   segments[reIndex()].toString());
               return true;
@@ -88,7 +88,7 @@ public class LeafSegmentPostProccessor {
           } catch (Exception e) {
             // 强制同步切换
             logger.warn("Leaf-segment asyn load error", e);
-            segments[reIndex()] = leafSegmentAware.loadAndUpdate();
+            segments[reIndex()] = segmentAware.loadAndUpdate();
             logger.debug("Leaf-segment sync load segment[{}]: {}", reIndex(),
                 segments[reIndex()].toString());
             this.setSw(); // 切换buffer
@@ -173,7 +173,7 @@ public class LeafSegmentPostProccessor {
       try {
         lock.lock();
         if (isMiddleId()) {
-          segments[reIndex()] = leafSegmentAware.loadAndUpdate();
+          segments[reIndex()] = segmentAware.loadAndUpdate();
           logger.debug("Leaf-segment sync load segment[{}]: {}", reIndex(),
               segments[reIndex()].toString());
         }

@@ -28,10 +28,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import cn.xbird.starter.id.autoconfigure.LeafSegmentProperties;
-import cn.xbird.starter.id.factory.LeafSegmentFactory;
-import cn.xbird.starter.id.repository.LeafSegmentRepository;
-import cn.xbird.starter.id.service.LeafSegmentID;
+import cn.xbird.starter.id.autoconfigure.SegmentProperties;
+import cn.xbird.starter.id.factory.SegmentFactory;
+import cn.xbird.starter.id.repository.SegmentRepository;
+import cn.xbird.starter.id.service.SegmentID;
 
 /**
  * ID JPA Configuration
@@ -40,30 +40,30 @@ import cn.xbird.starter.id.service.LeafSegmentID;
  * @since 2.2.0 2018-06-08
  */
 @Configuration
-@EnableConfigurationProperties(LeafSegmentProperties.class)
+@EnableConfigurationProperties(SegmentProperties.class)
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ, proxyTargetClass = true)
 @EnableJpaRepositories({"cn.xbird.starter.id.repository"})
 @EntityScan("cn.xbird.starter.id.domain")
 @EnableJpaAuditing
-public class LeafSegmentConfiguration implements InitializingBean {
+public class SegmentConfiguration implements InitializingBean {
 
   @Autowired
-  private LeafSegmentProperties leafSegmentProperties;
+  private SegmentProperties segmentProperties;
 
   @Autowired
-  private LeafSegmentRepository repository;
+  private SegmentRepository repository;
 
   @Bean
   @ConditionalOnMissingBean
-  public LeafSegmentID createLeafSegmentFactory() {
-    boolean asynLoading = leafSegmentProperties.getAsynLoading();
-    return new LeafSegmentFactory(repository, asynLoading);
+  public SegmentID createSegmentFactory() {
+    boolean asynLoading = segmentProperties.getAsynLoading();
+    return new SegmentFactory(repository, asynLoading);
   }
 
   @Override
   public void afterPropertiesSet() throws Exception {
-    leafSegmentProperties.getEndpoints().forEach((k, v) -> {
-      createLeafSegmentFactory().init(v.getBizTag(), v.getStartId(), v.getStep(),
+    segmentProperties.getEndpoints().forEach((k, v) -> {
+      createSegmentFactory().init(v.getBizTag(), v.getStartId(), v.getStep(),
           v.getDescription());
     });
   }

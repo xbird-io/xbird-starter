@@ -25,14 +25,14 @@ import org.springframework.util.Assert;
  * @author zhycn
  * @since 2.2.0 2018-06-08
  */
-public class LeafSegment implements InitializingBean {
+public class Segment implements InitializingBean {
 
   private Long minId;
   private Long maxId;
   private Long middleId;
   private Long step;
 
-  public LeafSegment(Long maxId, Long step) {
+  public Segment(Long maxId, Long step) {
     Assert.notNull(maxId, "maxId must be not null.");
     Assert.notNull(step, "step must be not null.");
     this.maxId = maxId;
@@ -68,7 +68,7 @@ public class LeafSegment implements InitializingBean {
 
   @Override
   public String toString() {
-    return "LeafSegment [minId=" + minId + ", maxId=" + maxId + ", middleId=" + middleId + ", step="
+    return "Segment [minId=" + minId + ", maxId=" + maxId + ", middleId=" + middleId + ", step="
         + step + "]";
   }
 

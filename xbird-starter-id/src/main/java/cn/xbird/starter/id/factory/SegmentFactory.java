@@ -25,12 +25,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
-import cn.xbird.starter.id.domain.LeafSegmentEntity;
-import cn.xbird.starter.id.factory.support.LeafSegment;
-import cn.xbird.starter.id.factory.support.LeafSegmentAware;
-import cn.xbird.starter.id.factory.support.LeafSegmentPostProccessor;
-import cn.xbird.starter.id.repository.LeafSegmentRepository;
-import cn.xbird.starter.id.service.LeafSegmentID;
+import cn.xbird.starter.id.domain.SegmentEntity;
+import cn.xbird.starter.id.factory.support.Segment;
+import cn.xbird.starter.id.factory.support.SegmentAware;
+import cn.xbird.starter.id.factory.support.SegmentPostProccessor;
+import cn.xbird.starter.id.repository.SegmentRepository;
+import cn.xbird.starter.id.service.SegmentID;
 
 /**
  * 基于美团 Leaf-segment 数据库方案的实现工厂
@@ -38,17 +38,17 @@ import cn.xbird.starter.id.service.LeafSegmentID;
  * @author zhycn
  * @since 2.2.0 2018-06-08
  */
-public class LeafSegmentFactory implements LeafSegmentID {
+public class SegmentFactory implements SegmentID {
 
-  private static Logger logger = LoggerFactory.getLogger(LeafSegmentFactory.class);
+  private static Logger logger = LoggerFactory.getLogger(SegmentFactory.class);
   private static final String REGEXP = "^[a-zA-Z0-9_-]{3,64}$";
   private static ReentrantLock lock = new ReentrantLock();
-  private static ConcurrentMap<String, LeafSegmentPostProccessor> bizTagMap =
+  private static ConcurrentMap<String, SegmentPostProccessor> bizTagMap =
       new ConcurrentHashMap<>();
-  private LeafSegmentRepository repository;
+  private SegmentRepository repository;
   private boolean asynLoading;
 
-  public LeafSegmentFactory(LeafSegmentRepository repository, boolean asynLoading) {
+  public SegmentFactory(SegmentRepository repository, boolean asynLoading) {
     this.repository = repository;
     this.asynLoading = asynLoading;
   }
@@ -69,19 +69,19 @@ public class LeafSegmentFactory implements LeafSegmentID {
 
     try {
       lock.lock();
-      LeafSegmentPostProccessor proccessor = new LeafSegmentPostProccessor(new LeafSegmentAware() {
+      SegmentPostProccessor proccessor = new SegmentPostProccessor(new SegmentAware() {
 
         @Override
-        public LeafSegment loadAndUpdate() {
+        public Segment loadAndUpdate() {
           if (!repository.existsById(bizTag)) {
             throw new IllegalArgumentException("bizTag[" + bizTag + "] doesn't exists.");
           }
-          LeafSegmentEntity entity = repository.findById(bizTag).get();
-          final LeafSegment currentSegment = new LeafSegment(entity.getMaxId(), entity.getStep());
+          SegmentEntity entity = repository.findById(bizTag).get();
+          final Segment currentSegment = new Segment(entity.getMaxId(), entity.getStep());
           final Long newMaxId = currentSegment.getMaxId() + currentSegment.getStep();
           entity.setMaxId(newMaxId);
           repository.save(entity);
-          return new LeafSegment(newMaxId, currentSegment.getStep());
+          return new Segment(newMaxId, currentSegment.getStep());
         }
       }, asynLoading);
       bizTagMap.putIfAbsent(bizTag, proccessor);
@@ -117,7 +117,7 @@ public class LeafSegmentFactory implements LeafSegmentID {
     this.check(bizTag);
 
     if (!repository.existsById(bizTag)) {
-      LeafSegmentEntity entity = new LeafSegmentEntity();
+      SegmentEntity entity = new SegmentEntity();
       entity.setBizTag(bizTag);
       entity.setDescription(desc);
       entity.setMaxId(startId);

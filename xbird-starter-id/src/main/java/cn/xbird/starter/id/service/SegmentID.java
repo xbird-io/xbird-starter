@@ -22,7 +22,7 @@ package cn.xbird.starter.id.service;
  * @author zhycn
  * @since 2.2.0 2018-06-08
  */
-public interface LeafSegmentID {
+public interface SegmentID {
 
   /**
    * 初始化一个业务配置

@@ -8,7 +8,7 @@
 2. UrlShortenerID
 3. OneTimePasswordID
 4. SnowflakeID
-5. LeafSegmentID
+5. SegmentID
 
 ## 快速开始
 
@@ -294,17 +294,17 @@ public interface SnowflakeID {
 }
 ```
 
-### 5. LeafSegmentID
+### 5. SegmentID
 
 基于美团 Leaf-segment 数据库方案的实现。
 
 > 在使用时，需要配置一个数据源。如果是多数据源，则使用 @Primary 标记的数据源将作为默认数据源。
 
-由于依赖数据库的缘故，需要手动打开配置 `@EnableLeafSegment`：
+由于依赖数据库的缘故，需要手动打开配置 `@EnableSegment`：
 
 ```
 @SpringBootApplication
-@EnableLeafSegment // 打开配置
+@EnableSegment // 打开配置
 public class DemoApplication {
 
 }
@@ -365,13 +365,13 @@ xbird.id.segment.endpoints.two.step=20
 ```
 // 在项目中使用（自动注入）
 @Autowired
-private LeafSegmentID leafSegmentID;
+private SegmentID SegmentID;
 ```
 
-LeafSegmentID 接口定义如下：
+SegmentID 接口定义如下：
 
 ```
-public interface LeafSegmentID {
+public interface SegmentID {
 
   /**
    * 初始化一个业务配置

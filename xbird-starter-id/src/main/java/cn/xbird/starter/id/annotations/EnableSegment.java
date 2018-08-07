@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
 
-import cn.xbird.starter.id.boot.LeafSegmentConfiguration;
+import cn.xbird.starter.id.boot.SegmentConfiguration;
 
 /**
  * @author zhycn
@@ -17,7 +17,7 @@ import cn.xbird.starter.id.boot.LeafSegmentConfiguration;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import(LeafSegmentConfiguration.class)
-public @interface EnableLeafSegment {
+@Import(SegmentConfiguration.class)
+public @interface EnableSegment {
 
 }

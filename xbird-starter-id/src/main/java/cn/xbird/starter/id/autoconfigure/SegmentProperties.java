@@ -28,10 +28,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @since 2.2.0 2018-06-08
  */
 @ConfigurationProperties(prefix = "xbird.id.segment")
-public class LeafSegmentProperties {
+public class SegmentProperties {
 
   private boolean asynLoading = true;
-  private Map<String, LeafSegmentData> endpoints = new HashMap<>();
+  private Map<String, SegmentData> endpoints = new HashMap<>();
 
   public boolean getAsynLoading() {
     return asynLoading;
@@ -41,15 +41,15 @@ public class LeafSegmentProperties {
     this.asynLoading = asynLoading;
   }
 
-  public Map<String, LeafSegmentData> getEndpoints() {
+  public Map<String, SegmentData> getEndpoints() {
     return endpoints;
   }
 
-  public void setEndpoints(Map<String, LeafSegmentData> endpoints) {
+  public void setEndpoints(Map<String, SegmentData> endpoints) {
     this.endpoints = endpoints;
   }
 
-  public static class LeafSegmentData {
+  public static class SegmentData {
 
     private String bizTag;
     private Long startId;

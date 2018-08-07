@@ -20,13 +20,13 @@ package cn.xbird.starter.id.factory.support;
  * @author zhycn
  * @since 2.2.0 2018-06-08
  */
-public interface LeafSegmentAware {
+public interface SegmentAware {
 
   /**
    * 从数据库加载数据并更新
    * 
    * @return buffer 管理对象
    */
-  LeafSegment loadAndUpdate();
+  Segment loadAndUpdate();
 
 }

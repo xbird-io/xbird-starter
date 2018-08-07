@@ -19,13 +19,13 @@ package cn.xbird.starter.id.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import cn.xbird.starter.id.domain.LeafSegmentEntity;
+import cn.xbird.starter.id.domain.SegmentEntity;
 
 /**
  * @author zhycn
  * @since 2.2.0 2018-06-08
  */
 @Repository
-public interface LeafSegmentRepository extends JpaRepository<LeafSegmentEntity, String> {
+public interface SegmentRepository extends JpaRepository<SegmentEntity, String> {
 
 }
