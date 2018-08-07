@@ -27,7 +27,7 @@ import cn.xbird.starter.id.service.SnowflakeID;
  * @author zhycn
  * @since 2.2.0 2018-06-13
  */
-public class LeafSnowflakeFactory implements SnowflakeID {
+public class DefaultSnowflakeFactory implements SnowflakeID {
 
   /** 开始时间戳 */
   private static final long EPOCH;
@@ -76,7 +76,7 @@ public class LeafSnowflakeFactory implements SnowflakeID {
    * 
    * @param workerId 工作ID (0~1023)
    */
-  public LeafSnowflakeFactory(long workerId) {
+  public DefaultSnowflakeFactory(long workerId) {
     if (workerId > MAX_WORKER_ID || workerId < 0) {
       throw new IllegalArgumentException(
           String.format("WorkerId can't be greater than %d or less than 0", MAX_WORKER_ID));

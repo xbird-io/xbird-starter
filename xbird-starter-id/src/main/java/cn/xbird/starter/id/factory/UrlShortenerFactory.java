@@ -33,7 +33,7 @@ public class UrlShortenerFactory implements UrlShortenerID {
    * 默认用于生成短链的字符串
    */
   private static String ALPHABET =
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   private static RandomID randomID = new RandomFactory();
 
   @Override
