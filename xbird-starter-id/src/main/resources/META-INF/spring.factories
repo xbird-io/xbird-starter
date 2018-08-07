@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.github.zhycn.id.autoconfigure.IdAutoConfiguration
+cn.xbird.starter.id.autoconfigure.IdAutoConfiguration

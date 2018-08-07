@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.github.zhycn.resteasy.autoconfigure.ResteasyAutoConfiguration
+cn.xbird.starter.resteasy.autoconfigure.ResteasyAutoConfiguration

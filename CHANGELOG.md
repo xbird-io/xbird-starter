@@ -1,7 +1,8 @@
 # Changelog
 
-### vBetter.SR1 2018-08-06
+### vBetter.SR1 2018-08-07
 
+- [重构] 包名修改为 cn.xbird.starter.* 开头。
 - [优化] 优化子项目描述信息。
 - [优化] 抽象 Spring Boot 项目的 pom.xml。
 - [升级] 项目版本号更新为 Better.SR1。
