@@ -28,9 +28,9 @@ _为REST APIs定义一个标准的、语言无关的接口，使人和计算机�
 | xbird.swagger2.enabled | （可选）是否启用。为了安全起见，默认不开启。 | false |
 | xbird.swagger2.title | （可选）标题 | API Documentation |
 | xbird.swagger2.description | （可选）描述 | The Best APIs are Built with Swagger Tools |
-| xbird.swagger2.termsOfServiceUrl | （可选）服务条款 |  |
+| xbird.swagger2.terms-of-service-url | （可选）服务条款 |  |
 | xbird.swagger2.license | （可选）监听协议 |  |
-| xbird.swagger2.licenseUrl | （可选）监听协议网址 |  |
+| xbird.swagger2.license-url | （可选）监听协议网址 |  |
 | xbird.swagger2.version | （可选）接口版本 | 1.0 |
 | xbird.swagger2.contact.name | （可选）联系人 |  |
 | xbird.swagger2.contact.url | （可选）联系网址 |  |

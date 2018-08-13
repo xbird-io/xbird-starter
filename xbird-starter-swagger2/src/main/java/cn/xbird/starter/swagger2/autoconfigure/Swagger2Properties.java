@@ -33,7 +33,7 @@ public class Swagger2Properties {
   
   // 设置API信息
   private String title = "API Documentation";
-  private String description = "The Best APIs are Built with Swagger Tools";
+  private String description = "The Best APIs are Built with Swagger Tools.";
   private String termsOfServiceUrl;
   private ContactWrapper contact = new ContactWrapper();
   private String license;
