@@ -7,7 +7,7 @@
 	<artifactId>xbird-starter</artifactId>
 	<version>Better.SR1</version>
 	<packaging>pom</packaging>
-	<name>Xbird Starter</name>
+	<name>Parent</name>
 	<description>A cohesive, versioned platform for enterprise applications with Spring Boot.</description>
 	<url>https://zhycn.github.io/xbird-starter/</url>
 
@@ -30,7 +30,7 @@
 		<groupId>io.spring.platform</groupId>
 		<artifactId>platform-bom</artifactId>
 		<version>Cairo-SR3</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
 
 	<modules>
