@@ -1,46 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<artifactId>xbird-starter-swagger2</artifactId>
-	<packaging>jar</packaging>
-	<name>Xbird Starter Swagger2</name>
-	<description>Integrating the Swagger framework of API developer tools for Spring Boot.</description>
-	<url>https://zhycn.github.io/xbird-starter/</url>
-
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-		</license>
-	</licenses>
-
-	<developers>
-		<developer>
-			<name>zhycn</name>
-			<url>https://github.com/zhycn</url>
-			<email>qizhaohong_sh@qq.com</email>
-		</developer>
-	</developers>
+	<name>Swagger</name>
+	<description>The Best APIs are Built with Swagger Tools</description>
+	<url>https://swagger.io/</url>
 
 	<parent>
 		<groupId>com.github.zhycn</groupId>
 		<artifactId>xbird-starter</artifactId>
-		<version>2.3.0</version>
+		<version>Better.SR1</version>
 		<relativePath>../</relativePath>
 	</parent>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -48,16 +23,6 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-data-rest</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-bean-validators</artifactId>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

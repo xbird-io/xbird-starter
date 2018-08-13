@@ -1,46 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<artifactId>xbird-starter-resteasy</artifactId>
-	<packaging>jar</packaging>
-	<name>Xbird Starter RESTEasy</name>
-	<description>Integrating the RESTEasy for Spring Boot.</description>
-	<url>https://zhycn.github.io/xbird-starter/</url>
-
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-		</license>
-	</licenses>
-
-	<developers>
-		<developer>
-			<name>zhycn</name>
-			<url>https://github.com/zhycn</url>
-			<email>qizhaohong_sh@qq.com</email>
-		</developer>
-	</developers>
+	<name>RESTEasy</name>
+	<description>A JBoss project that provides various frameworks to help you build RESTful Web Services and RESTful Java applications. </description>
+	<url>https://resteasy.github.io/</url>
 
 	<parent>
 		<groupId>com.github.zhycn</groupId>
 		<artifactId>xbird-starter</artifactId>
-		<version>2.3.0</version>
+		<version>Better.SR1</version>
 		<relativePath>../</relativePath>
 	</parent>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -65,7 +40,6 @@
 			<artifactId>resteasy-multipart-provider</artifactId>
 			<version>${jboss.resteasy.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-servlet-initializer</artifactId>
@@ -104,6 +78,11 @@
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.json</artifactId>
 			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.checkerframework</groupId>
+			<artifactId>checker-qual</artifactId>
+			<version>2.5.4</version>
 		</dependency>
 	</dependencies>
 

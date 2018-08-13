@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.github.zhycn</groupId>
 	<artifactId>xbird-starter</artifactId>
-	<version>2.3.0</version>
+	<version>Better.SR1</version>
 	<packaging>pom</packaging>
-
-	<name>xbird Starter</name>
+	<name>Parent</name>
 	<description>A cohesive, versioned platform for enterprise applications with Spring Boot.</description>
 	<url>https://zhycn.github.io/xbird-starter/</url>
 
@@ -27,21 +26,14 @@
 		</developer>
 	</developers>
 
-	<scm>
-		<connection>scm:git:https://github.com/zhycn/xbird-starter.git</connection>
-		<developerConnection>scm:git:https://github.com/zhycn/xbird-starter.git</developerConnection>
-		<url>https://zhycn.github.io/xbird-starter/</url>
-	</scm>
-
 	<parent>
 		<groupId>io.spring.platform</groupId>
 		<artifactId>platform-bom</artifactId>
-		<version>Cairo-SR2</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>Cairo-SR3</version>
+		<relativePath />
 	</parent>
 
 	<modules>
-		<!-- <module>xbird-starter-bom</module> -->
 		<module>xbird-starter-dubbo</module>
 		<module>xbird-starter-id</module>
 		<module>xbird-starter-swagger2</module>
@@ -53,24 +45,53 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<xbird.version>2.3.0</xbird.version>
-		<spring.cloud.version>Finchley.RELEASE</spring.cloud.version>
-		<apache.zookeeper.version>3.4.11</apache.zookeeper.version>
-		<alibaba.fastjson.version>1.2.47</alibaba.fastjson.version>
-		<alibaba.dubbo.starter.version>2.0.0</alibaba.dubbo.starter.version>
-		<alibaba.druid.version>1.1.10</alibaba.druid.version>
+		<skipTests>true</skipTests>
+		<xbird.starter.version>Better.SR1</xbird.starter.version>
+		<spring.cloud.version>Finchley.SR1</spring.cloud.version>
+		<spring.boot.admin.version>2.0.1</spring.boot.admin.version>
 		<springfox.version>2.8.0</springfox.version>
-		<squareup.retrofit2.version>2.3.0</squareup.retrofit2.version>
+		<alibaba.druid.version>1.1.10</alibaba.druid.version>
+		<alibaba.dubbo.starter.version>2.0.0</alibaba.dubbo.starter.version>
+		<alibaba.fastjson.version>1.2.47</alibaba.fastjson.version>
+		<apache.poi.version>3.17</apache.poi.version>
+		<apache.zookeeper.version>3.4.11</apache.zookeeper.version>
+		<google.gson.version>2.8.5</google.gson.version>
+		<google.guava.version>25.1-jre</google.guava.version>
 		<hutool.version>4.1.2</hutool.version>
-		<zkclient.version>0.10</zkclient.version>
 		<javax.ws.rs.version>2.1</javax.ws.rs.version>
 		<jboss.resteasy.version>3.5.0.CR4</jboss.resteasy.version>
-		<spring.boot.admin.version>2.0.1</spring.boot.admin.version>
-		<google.guava.version>25.1-jre</google.guava.version>
+		<squareup.retrofit2.version>2.3.0</squareup.retrofit2.version>
+		<zkclient.version>0.10</zkclient.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>xbird-starter-dubbo</artifactId>
+				<version>${xbird.starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>xbird-starter-id</artifactId>
+				<version>${xbird.starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>xbird-starter-swagger2</artifactId>
+				<version>${xbird.starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>xbird-starter-resteasy</artifactId>
+				<version>${xbird.starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>xbird-starter-retrofit2</artifactId>
+				<version>${xbird.starter.version}</version>
+			</dependency>
+			
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -79,39 +100,19 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>com.github.zhycn</groupId>
-				<artifactId>xbird-starter-dubbo</artifactId>
-				<version>${xbird.version}</version>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${spring.boot.admin.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.github.zhycn</groupId>
-				<artifactId>xbird-starter-id</artifactId>
-				<version>${xbird.version}</version>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-server-ui</artifactId>
+				<version>${spring.boot.admin.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.github.zhycn</groupId>
-				<artifactId>xbird-starter-swagger2</artifactId>
-				<version>${xbird.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.zhycn</groupId>
-				<artifactId>xbird-starter-resteasy</artifactId>
-				<version>${xbird.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.zhycn</groupId>
-				<artifactId>xbird-starter-retrofit2</artifactId>
-				<version>${xbird.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>fastjson</artifactId>
-				<version>${alibaba.fastjson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>${alibaba.druid.version}</version>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${spring.boot.admin.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.springfox</groupId>
@@ -132,6 +133,66 @@
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-bean-validators</artifactId>
 				<version>${springfox.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${alibaba.druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.spring.boot</groupId>
+				<artifactId>dubbo-spring-boot-starter</artifactId>
+				<version>${alibaba.dubbo.starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${alibaba.fastjson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${apache.poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${apache.poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml-schemas</artifactId>
+				<version>${apache.poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-scratchpad</artifactId>
+				<version>${apache.poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${apache.zookeeper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${google.gson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${google.guava.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>javax.ws.rs-api</artifactId>
+				<version>${javax.ws.rs.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.squareup.retrofit2</groupId>
@@ -204,53 +265,30 @@
 				<version>${squareup.retrofit2.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>cn.hutool</groupId>
-				<artifactId>hutool-all</artifactId>
-				<version>${hutool.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.alibaba.spring.boot</groupId>
-				<artifactId>dubbo-spring-boot-starter</artifactId>
-				<version>${alibaba.dubbo.starter.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.zookeeper</groupId>
-				<artifactId>zookeeper</artifactId>
-				<version>${apache.zookeeper.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>com.101tec</groupId>
 				<artifactId>zkclient</artifactId>
 				<version>${zkclient.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>javax.ws.rs</groupId>
-				<artifactId>javax.ws.rs-api</artifactId>
-				<version>${javax.ws.rs.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-starter-server</artifactId>
-				<version>${spring.boot.admin.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-server-ui</artifactId>
-				<version>${spring.boot.admin.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-starter-client</artifactId>
-				<version>${spring.boot.admin.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.guava</groupId>
-				<artifactId>guava</artifactId>
-				<version>${google.guava.version}</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
 	<profiles>
 		<profile>
 			<id>release</id>
