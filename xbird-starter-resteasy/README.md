@@ -4,8 +4,6 @@
 
 > 由于在 Spring Boot 2.x 中 autoconfigure 模块的包名发生变更，与 Spring Boot 1.x 不兼容。如果使用低版本的Spring Boot，可参考：[paypal/resteasy-spring-boot](https://github.com/paypal/resteasy-spring-boot) 项目。
 
-特别说明：由于在测试的过程中，发现官方提供的最新稳定版 `3.5.0.Final` 中，`resteasy-client` 模块的Maven打包存在问题，故采用了 RESTEasy 3.5.0.RC4 版本（后续会持续跟进这个问题）。
-
 ## 快速开始
 
 在你的 Spring Boot 2.x 项目中添加依赖配置：
