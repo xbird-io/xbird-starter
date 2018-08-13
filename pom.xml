@@ -59,7 +59,7 @@
 		<google.guava.version>25.1-jre</google.guava.version>
 		<hutool.version>4.1.2</hutool.version>
 		<javax.ws.rs.version>2.1</javax.ws.rs.version>
-		<jboss.resteasy.version>3.5.0.CR4</jboss.resteasy.version>
+		<jboss.resteasy.version>3.6.1.Final</jboss.resteasy.version>
 		<squareup.retrofit2.version>2.3.0</squareup.retrofit2.version>
 		<zkclient.version>0.10</zkclient.version>
 	</properties>

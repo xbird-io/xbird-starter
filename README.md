@@ -70,7 +70,7 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 - [Google Guava - 25.1-jre](https://github.com/google/guava)
 - [Google Gson - 2.8.5](https://github.com/google/gson)
 - [Hutool - 4.1.2](http://www.hutool.cn/)
-- [JBoss RESTEasy - 3.5.0.CR4](https://resteasy.github.io/)
+- [JBoss RESTEasy - 3.6.1.Final](https://resteasy.github.io/)
 - [Retrofit - 2.3.0](http://square.github.io/retrofit/)
 - [Spring Boot Admin - 2.0.1](https://github.com/codecentric/spring-boot-admin)
 - [Springfox Swagger2 - 2.8.0](https://springfox.github.io/springfox/)
