@@ -56,9 +56,9 @@ Xbird Starter 是一个基于 [Spring IO Platform](http://platform.spring.io/pla
 
 ## 附录：依赖版本
 
-以下是 Xbird Starter 已集成的依赖包及版本信息：
+利益于 Spring IO Platform 项目提供了大量的依赖版本管理，你可以直接在项目中使用，详细请查看：[Spring IO Platform - Dependency versions](https://docs.spring.io/platform/docs/Cairo-SR3/reference/htmlsingle/#appendix-dependency-versions)
 
-> 得益于 Spring IO Platform 项目提供的依赖版本管理，请查看：[Spring IO Platform - Dependency versions](https://docs.spring.io/platform/docs/Cairo-SR3/reference/htmlsingle/#appendix-dependency-versions)
+以下是 Xbird Starter 项目提供的依赖版本信息：
 
 - [Spring IO Platform - Cairo-SR3](http://platform.spring.io/platform/)
 - [Spring Boot - 2.0.4.RELEASE](https://projects.spring.io/spring-boot/)
