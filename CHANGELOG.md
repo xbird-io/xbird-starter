@@ -2,6 +2,7 @@
 
 ### vBetter.SR1 2018-08-07
 
+- [BUG] 修改RESTEasy项目 checker-qual版本的BUG。
 - [BUG] 修复 SegmentID 异步加载时会出现空指针的BUG。
 - [重构] 包名修改为 cn.xbird.starter.* 开头。
 - [升级] xbird-starter-id 项目简化了snowflake的配置和使用。
