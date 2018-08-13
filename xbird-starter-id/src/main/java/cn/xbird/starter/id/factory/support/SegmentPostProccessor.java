@@ -37,6 +37,7 @@ public class SegmentPostProccessor {
   private static Logger logger = LoggerFactory.getLogger(SegmentPostProccessor.class);
   private static ReentrantLock lock = new ReentrantLock();
   private static ExecutorService taskExecutor = Executors.newSingleThreadExecutor();
+  private static FutureTask<Boolean> futureTask = null;
   private volatile Segment[] segments = new Segment[2]; // 采用双buffer
   private SegmentAware segmentAware; // 外部注入数据
   private boolean asynLoading; // 是否为异步加载buffer
@@ -64,10 +65,8 @@ public class SegmentPostProccessor {
     if (isMiddleId() || isMaxId()) {
       try {
         lock.lock();
-        FutureTask<Boolean> futureTask = null;
         if (isMiddleId()) {
           futureTask = new FutureTask<>(new Callable<Boolean>() {
-
             @Override
             public Boolean call() throws Exception {
               segments[reIndex()] = segmentAware.loadAndUpdate();

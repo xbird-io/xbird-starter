@@ -30,7 +30,7 @@ public class SnowflakeProperties {
   }
 
   /**
-   * Strategy: Twitter, MTLeaf
+   * Strategy: Twitter, Leaf
    */
   private Strategy strategy = Strategy.leaf;
 

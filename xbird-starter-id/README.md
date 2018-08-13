@@ -146,8 +146,8 @@ xbird.id.segment.endpoints.two.biz-tag=order_test
 xbird.id.segment.endpoints.two.step=20
 ```
 
-- startId 默认值为 1。
-- description 默认值为 null。
+- startId 默认值为：1。
+- description 默认值为：No Description。
 
 配置完成后，即可在项目中使用：
 

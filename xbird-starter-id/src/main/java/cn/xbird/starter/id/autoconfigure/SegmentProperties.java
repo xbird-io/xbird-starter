@@ -52,9 +52,9 @@ public class SegmentProperties {
   public static class SegmentData {
 
     private String bizTag;
-    private Long startId;
-    private Long step;
-    private String description;
+    private Long startId = 1L;
+    private Long step = 200L;
+    private String description = "No Description";
 
     public String getBizTag() {
       return bizTag;

@@ -73,9 +73,11 @@ public class IdAutoConfiguration {
   public SnowflakeID createSnowflakeFactory() {
     int workerId = snowflakeProperties.getWorkerId();
     int dataCenterId = snowflakeProperties.getDataCenterId();
+    
     if (snowflakeProperties.getStrategy() == Strategy.twitter) {
       return new TwitterSnowflakeFactory(workerId, dataCenterId);
     }
+    
     return new DefaultSnowflakeFactory(workerId);
   }
 
