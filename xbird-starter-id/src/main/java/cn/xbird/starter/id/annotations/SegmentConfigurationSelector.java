@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.xbird.starter.id.boot;
+package cn.xbird.starter.id.annotations;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +45,10 @@ import cn.xbird.starter.id.service.SegmentID;
 @EnableJpaRepositories({"cn.xbird.starter.id.repository"})
 @EntityScan("cn.xbird.starter.id.domain")
 @EnableJpaAuditing
-public class SegmentConfiguration implements InitializingBean {
+public class SegmentConfigurationSelector implements InitializingBean {
 
   @Autowired
-  private SegmentProperties segmentProperties;
+  private SegmentProperties properties;
 
   @Autowired
   private SegmentRepository repository;
@@ -56,13 +56,13 @@ public class SegmentConfiguration implements InitializingBean {
   @Bean
   @ConditionalOnMissingBean
   public SegmentID createSegmentFactory() {
-    boolean asynLoading = segmentProperties.getAsynLoading();
+    boolean asynLoading = properties.getAsynLoading();
     return new SegmentFactory(repository, asynLoading);
   }
 
   @Override
   public void afterPropertiesSet() throws Exception {
-    segmentProperties.getEndpoints().forEach((k, v) -> {
+    properties.getEndpoints().forEach((k, v) -> {
       createSegmentFactory().init(v.getBizTag(), v.getStartId(), v.getStep(),
           v.getDescription());
     });
